@@ -16,11 +16,6 @@ import {
   Lock,
   TrendingUp,
   Target,
-  Database,
-  Cloud,
-  Settings,
-  FileCheck,
-  Briefcase,
 } from "lucide-react";
 
 const ServicesSection = () => {
@@ -316,7 +311,7 @@ const ServicesSection = () => {
             </h3>
             <p className="text-gray-300 text-lg max-w-3xl mx-auto">
               Navigate complex federal procurement processes with our expert
-              guidance. We'll help you identify, pursue, and win lucrative
+              guidance. We&apos;ll help you identify, pursue, and win lucrative
               government contracts with proven methodologies.
             </p>
           </div>

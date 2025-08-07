@@ -13,7 +13,6 @@ import {
   Clock,
   Send,
   CheckCircle,
-  Star,
   Award,
   Globe,
   MessageSquare,

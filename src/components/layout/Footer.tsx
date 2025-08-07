@@ -2,15 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import {
-  Phone,
-  Mail,
-  MapPin,
-  ArrowUp,
-  ExternalLink,
-  Globe,
-  Shield,
-} from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUp, Globe, Shield } from "lucide-react";
 import Image from "next/image";
 
 const Footer = () => {
