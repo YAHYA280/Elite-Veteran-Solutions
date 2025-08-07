@@ -6,8 +6,8 @@ html {
 }
 
 body {
-  background-color: #111827;
-  color: #f3f4f6;
+  background-color: #0f172a; /* Changed to darker slate */
+  color: #f1f5f9;
 }
 
 /* Enhanced Gradient Text */
@@ -18,9 +18,9 @@ body {
   background-clip: text;
 }
 
-/* Dark Theme Gradients */
+/* Updated Dark Theme Gradients */
 .dark-gradient {
-  background: linear-gradient(135deg, #111827, #1f2937, #374151);
+  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
 }
 
 .orange-gradient {
@@ -33,16 +33,16 @@ body {
 
 /* Enhanced Glass Effect for Dark Theme */
 .glass-effect {
-  background: rgba(31, 41, 55, 0.8);
+  background: rgba(30, 41, 59, 0.8);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(75, 85, 99, 0.3);
+  border: 1px solid rgba(71, 85, 105, 0.3);
 }
 
-/* Dark Card Effect */
+/* Dark Card Effect with better contrast */
 .dark-card {
-  background: rgba(17, 24, 39, 0.95);
-  border: 1px solid rgba(55, 65, 81, 0.5);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+  background: rgba(15, 23, 42, 0.95);
+  border: 1px solid rgba(51, 65, 85, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
 }
 
 /* Enhanced Section Padding */
@@ -88,9 +88,9 @@ body {
   transform: translateX(0);
 }
 
-/* Enhanced Hero Background */
+/* Enhanced Hero Background with better contrast */
 .hero-bg {
-  background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #374151 100%);
+  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
   position: relative;
   overflow: hidden;
 }
@@ -168,20 +168,20 @@ body {
 }
 
 .btn-secondary {
-  @apply border border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
+  @apply border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
 }
 
 .btn-outline {
   @apply border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
 }
 
-/* Form Styles for Dark Theme */
+/* Form Styles for Dark Theme with better contrast */
 .form-input {
-  @apply w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all;
+  @apply w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all;
 }
 
 .form-textarea {
-  @apply w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all resize-none;
+  @apply w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all resize-none;
 }
 
 /* Loading States */
@@ -193,7 +193,7 @@ body {
 .scroll-indicator {
   width: 24px;
   height: 40px;
-  border: 2px solid rgba(156, 163, 175, 0.5);
+  border: 2px solid rgba(148, 163, 184, 0.5);
   border-radius: 20px;
   display: flex;
   justify-content: center;
@@ -220,9 +220,9 @@ body {
   }
 }
 
-/* Service Card Enhancements */
+/* Service Card Enhancements with better contrast */
 .service-card {
-  @apply bg-gray-800 border border-gray-700 rounded-2xl p-8 transition-all duration-500 hover:border-orange-500/50 hover:shadow-2xl hover:-translate-y-2;
+  @apply bg-slate-800 border border-slate-600 rounded-2xl p-8 transition-all duration-500 hover:border-orange-500/50 hover:shadow-2xl hover:-translate-y-2;
 }
 
 .service-card::before {
@@ -247,11 +247,11 @@ body {
   opacity: 1;
 }
 
-/* Navbar Enhancements */
+/* Navbar Enhancements with better contrast */
 .navbar-blur {
-  background: rgba(17, 24, 39, 0.95);
+  background: rgba(15, 23, 42, 0.95);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(55, 65, 81, 0.3);
+  border-bottom: 1px solid rgba(51, 65, 85, 0.3);
 }
 
 /* Custom Scrollbar for Dark Theme */
@@ -260,16 +260,16 @@ body {
 }
 
 ::-webkit-scrollbar-track {
-  background: #1f2937;
+  background: #1e293b;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #374151;
+  background: #334155;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #4b5563;
+  background: #475569;
 }
 
 /* Text Selection */
@@ -287,6 +287,30 @@ body {
 .focus-orange:focus {
   outline: none;
   box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
+}
+
+/* Logo enhancement for better visibility */
+.logo-container {
+  filter: brightness(1.2) contrast(1.1);
+  transition: all 0.3s ease;
+}
+
+.logo-container:hover {
+  filter: brightness(1.4) contrast(1.2);
+  transform: scale(1.05);
+}
+
+/* Hero section visibility fixes */
+.hero-content {
+  position: relative;
+  z-index: 10;
+  opacity: 1;
+  visibility: visible;
+}
+
+.hero-text {
+  color: #f1f5f9;
+  text-shadow: 0 2px 4px rgba(0, 0, 0, 0.3);
 }
 
 /* Animation Delays */
