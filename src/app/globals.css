@@ -1,44 +1,64 @@
 @import "tailwindcss";
 
-/* Custom styles */
+/* Enhanced Custom Styles for Dark Theme */
 html {
   scroll-behavior: smooth;
 }
 
+body {
+  background-color: #111827;
+  color: #f3f4f6;
+}
+
+/* Enhanced Gradient Text */
 .gradient-text {
-  background: linear-gradient(135deg, #f97316, #ea580c);
+  background: linear-gradient(135deg, #f97316, #ea580c, #fb923c);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-.navy-gradient {
-  background: linear-gradient(135deg, #1e1b4b, #312e81, #4338ca);
+/* Dark Theme Gradients */
+.dark-gradient {
+  background: linear-gradient(135deg, #111827, #1f2937, #374151);
 }
 
 .orange-gradient {
   background: linear-gradient(135deg, #f97316, #ea580c);
 }
 
-.glass-effect {
-  background: rgba(255, 255, 255, 0.1);
-  backdrop-filter: blur(10px);
-  border: 1px solid rgba(255, 255, 255, 0.2);
+.blue-gradient {
+  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
 }
 
+/* Enhanced Glass Effect for Dark Theme */
+.glass-effect {
+  background: rgba(31, 41, 55, 0.8);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(75, 85, 99, 0.3);
+}
+
+/* Dark Card Effect */
+.dark-card {
+  background: rgba(17, 24, 39, 0.95);
+  border: 1px solid rgba(55, 65, 81, 0.5);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.3);
+}
+
+/* Enhanced Section Padding */
 .section-padding {
-  @apply py-16 lg:py-24;
+  @apply py-20 lg:py-28;
 }
 
 .container-custom {
   @apply container mx-auto px-4 sm:px-6 lg:px-8;
 }
 
-/* Animation classes */
+/* Enhanced Animation Classes */
 .animate-on-scroll {
   opacity: 0;
-  transform: translateY(30px);
-  transition: all 0.6s ease-out;
+  transform: translateY(40px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
 }
 
 .animate-on-scroll.animated {
@@ -46,9 +66,31 @@ html {
   transform: translateY(0);
 }
 
-/* Hero section custom styles */
+.animate-slide-in-left {
+  opacity: 0;
+  transform: translateX(-50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slide-in-left.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+.animate-slide-in-right {
+  opacity: 0;
+  transform: translateX(50px);
+  transition: all 0.8s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.animate-slide-in-right.animated {
+  opacity: 1;
+  transform: translateX(0);
+}
+
+/* Enhanced Hero Background */
 .hero-bg {
-  background: linear-gradient(135deg, #1e1b4b 0%, #312e81 50%, #4338ca 100%);
+  background: linear-gradient(135deg, #111827 0%, #1f2937 50%, #374151 100%);
   position: relative;
   overflow: hidden;
 }
@@ -60,16 +102,225 @@ html {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23ffffff' fill-opacity='0.05'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background: radial-gradient(
+    circle at 50% 50%,
+    rgba(249, 115, 22, 0.1) 0%,
+    transparent 50%
+  );
+  animation: pulse-glow 4s ease-in-out infinite;
+}
+
+.hero-bg::after {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   animation: float 20s ease-in-out infinite;
 }
 
+/* Enhanced Animations */
 @keyframes float {
   0%,
   100% {
-    transform: translateY(0px);
+    transform: translateY(0px) rotate(0deg);
+  }
+  50% {
+    transform: translateY(-15px) rotate(5deg);
+  }
+}
+
+@keyframes pulse-glow {
+  0%,
+  100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.6;
+  }
+}
+
+@keyframes bounce-slow {
+  0%,
+  100% {
+    transform: translateY(0);
   }
   50% {
     transform: translateY(-10px);
+  }
+}
+
+/* Custom Hover Effects */
+.hover-lift {
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.hover-lift:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+}
+
+/* Enhanced Button Styles */
+.btn-primary {
+  @apply bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+}
+
+.btn-secondary {
+  @apply border border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
+}
+
+.btn-outline {
+  @apply border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+}
+
+/* Form Styles for Dark Theme */
+.form-input {
+  @apply w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all;
+}
+
+.form-textarea {
+  @apply w-full px-4 py-3 bg-gray-800 border border-gray-700 rounded-lg text-white placeholder-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all resize-none;
+}
+
+/* Loading States */
+.loading-spinner {
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500;
+}
+
+/* Enhanced Scroll Indicators */
+.scroll-indicator {
+  width: 24px;
+  height: 40px;
+  border: 2px solid rgba(156, 163, 175, 0.5);
+  border-radius: 20px;
+  display: flex;
+  justify-content: center;
+  padding-top: 8px;
+}
+
+.scroll-dot {
+  width: 4px;
+  height: 12px;
+  background: rgba(249, 115, 22, 0.7);
+  border-radius: 2px;
+  animation: scroll-bounce 2s ease-in-out infinite;
+}
+
+@keyframes scroll-bounce {
+  0%,
+  100% {
+    transform: translateY(0);
+    opacity: 0.7;
+  }
+  50% {
+    transform: translateY(8px);
+    opacity: 1;
+  }
+}
+
+/* Service Card Enhancements */
+.service-card {
+  @apply bg-gray-800 border border-gray-700 rounded-2xl p-8 transition-all duration-500 hover:border-orange-500/50 hover:shadow-2xl hover:-translate-y-2;
+}
+
+.service-card::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  border-radius: 1rem;
+  background: linear-gradient(
+    135deg,
+    rgba(249, 115, 22, 0.1),
+    rgba(234, 88, 12, 0.1)
+  );
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  pointer-events: none;
+}
+
+.service-card:hover::before {
+  opacity: 1;
+}
+
+/* Navbar Enhancements */
+.navbar-blur {
+  background: rgba(17, 24, 39, 0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid rgba(55, 65, 81, 0.3);
+}
+
+/* Custom Scrollbar for Dark Theme */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #1f2937;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #374151;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #4b5563;
+}
+
+/* Text Selection */
+::selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: #fff;
+}
+
+::-moz-selection {
+  background: rgba(249, 115, 22, 0.3);
+  color: #fff;
+}
+
+/* Focus States */
+.focus-orange:focus {
+  outline: none;
+  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
+}
+
+/* Animation Delays */
+.animation-delay-200 {
+  animation-delay: 200ms;
+}
+.animation-delay-400 {
+  animation-delay: 400ms;
+}
+.animation-delay-600 {
+  animation-delay: 600ms;
+}
+.animation-delay-800 {
+  animation-delay: 800ms;
+}
+.animation-delay-1000 {
+  animation-delay: 1000ms;
+}
+
+/* Responsive Text */
+@media (max-width: 640px) {
+  .hero-title {
+    @apply text-4xl;
+  }
+}
+
+@media (min-width: 641px) and (max-width: 1024px) {
+  .hero-title {
+    @apply text-5xl;
+  }
+}
+
+@media (min-width: 1025px) {
+  .hero-title {
+    @apply text-6xl lg:text-7xl;
   }
 }
