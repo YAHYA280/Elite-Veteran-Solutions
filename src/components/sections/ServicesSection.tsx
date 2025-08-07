@@ -15,7 +15,6 @@ import {
   Globe,
   Lock,
   TrendingUp,
-  Star,
   Award,
   Target,
   Database,

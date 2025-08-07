@@ -10,7 +10,6 @@ import {
   Users,
   CheckCircle,
   Award,
-  TrendingUp,
   Phone,
   Mail,
 } from "lucide-react";
@@ -73,7 +72,7 @@ const HeroSection = () => {
   const scrollToSection = (sectionId: string) => {
     const element = document.querySelector(sectionId);
     if (element) {
-      const navHeight = 112; // Account for navbar height
+      const navHeight = 80; // Account for navbar height
       const elementPosition =
         element.getBoundingClientRect().top + window.pageYOffset;
       const offsetPosition = elementPosition - navHeight;
@@ -135,7 +134,7 @@ const HeroSection = () => {
     <section
       id="home"
       ref={heroRef}
-      className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center relative overflow-hidden pt-28 pb-20"
+      className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center relative overflow-hidden pt-20 pb-20"
     >
       {/* Enhanced Background Elements */}
       <div className="absolute inset-0 overflow-hidden pointer-events-none">

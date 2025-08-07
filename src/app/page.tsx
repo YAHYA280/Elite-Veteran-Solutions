@@ -4,9 +4,8 @@ import dynamic from "next/dynamic";
 // Optimized dynamic imports for better performance
 const Navbar = dynamic(() => import("@/components/layout/Navbar"), {
   loading: () => (
-    <div className="h-28 bg-gray-900 animate-pulse">
-      <div className="h-12 bg-gray-800"></div>
-      <div className="h-16 bg-gray-900/90"></div>
+    <div className="h-20 bg-gray-900 animate-pulse">
+      <div className="h-20 bg-gray-900/90"></div>
     </div>
   ),
 });
@@ -375,7 +374,7 @@ export default function Home() {
                   longitude: "-98.4936",
                 },
                 url: "https://elitevetsolutions.com",
-                priceRange: "$$",
+                priceRange: "$",
                 openingHoursSpecification: [
                   {
                     "@type": "OpeningHoursSpecification",
@@ -432,85 +431,5 @@ export default function Home() {
         }}
       />
     </main>
-  );
-}
-
-// Error boundary for better user experience
-export function generateStaticParams() {
-  return [];
-}
-
-// Enhanced loading component
-export function Loading() {
-  return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-      <div className="text-center">
-        <div className="relative">
-          <div className="w-16 h-16 border-4 border-orange-500/30 border-t-orange-500 rounded-full animate-spin"></div>
-          <div
-            className="absolute inset-0 w-16 h-16 border-4 border-transparent border-t-orange-400 rounded-full animate-spin animation-delay-200"
-            style={{ animationDirection: "reverse" }}
-          ></div>
-        </div>
-        <div className="mt-6 space-y-2">
-          <p className="text-white text-lg font-semibold">
-            Loading Elite Veteran Solutions...
-          </p>
-          <p className="text-gray-400 text-sm">Service Beyond Expectations</p>
-        </div>
-      </div>
-    </div>
-  );
-}
-
-// Error component for better error handling
-export function Error({
-  error,
-  reset,
-}: {
-  error: Error & { digest?: string };
-  reset: () => void;
-}) {
-  return (
-    <div className="min-h-screen bg-gray-900 flex items-center justify-center">
-      <div className="text-center p-8 max-w-md mx-auto">
-        <div className="w-16 h-16 bg-red-500/20 rounded-full flex items-center justify-center mx-auto mb-6">
-          <svg
-            className="w-8 h-8 text-red-400"
-            fill="none"
-            stroke="currentColor"
-            viewBox="0 0 24 24"
-          >
-            <path
-              strokeLinecap="round"
-              strokeLinejoin="round"
-              strokeWidth={2}
-              d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-2.5L13.732 4c-.77-.833-1.964-.833-2.732 0L3.732 16.5c-.77.833.192 2.5 1.732 2.5z"
-            />
-          </svg>
-        </div>
-        <h2 className="text-2xl font-bold text-white mb-4">
-          Something went wrong
-        </h2>
-        <p className="text-gray-300 mb-6">
-          We apologize for the inconvenience. Please try refreshing the page or
-          contact our support team.
-        </p>
-        <div className="flex flex-col sm:flex-row gap-4 justify-center">
-          <button
-            onClick={reset}
-            className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-colors"
-          >
-            Try Again
-          </button>
-          <a
-            href="tel:888-747-9909"
-            className="border border-gray-600 text-gray-300 hover:bg-gray-800 px-6 py-3 rounded-lg font-semibold transition-colors"
-          >
-            Call Support: 888-747-9909
-          </a>
-        </div>
-      </div>
-    </div>
   );
 }

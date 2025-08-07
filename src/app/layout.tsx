@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
+import Script from "next/script";
 import "./globals.css";
 
 const inter = Inter({
@@ -259,38 +260,6 @@ export default function RootLayout({
             }),
           }}
         />
-
-        {/* Google Analytics (replace with your GA4 measurement ID) */}
-        <script
-          async
-          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
-        />
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              window.dataLayer = window.dataLayer || [];
-              function gtag(){dataLayer.push(arguments);}
-              gtag('js', new Date());
-              gtag('config', 'GA_MEASUREMENT_ID', {
-                page_title: document.title,
-                page_location: window.location.href,
-              });
-            `,
-          }}
-        />
-
-        {/* Microsoft Clarity (optional) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              (function(c,l,a,r,i,t,y){
-                c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
-                t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
-                y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
-              })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
-            `,
-          }}
-        />
       </head>
       <body className={`${inter.className} bg-gray-900 text-white antialiased`}>
         {/* Skip to main content for accessibility */}
@@ -305,6 +274,34 @@ export default function RootLayout({
         <div id="main-content" className="min-h-screen">
           {children}
         </div>
+
+        {/* Google Analytics using Next.js Script component */}
+        <Script
+          src="https://www.googletagmanager.com/gtag/js?id=GA_MEASUREMENT_ID"
+          strategy="afterInteractive"
+        />
+        <Script id="google-analytics" strategy="afterInteractive">
+          {`
+            window.dataLayer = window.dataLayer || [];
+            function gtag(){dataLayer.push(arguments);}
+            gtag('js', new Date());
+            gtag('config', 'GA_MEASUREMENT_ID', {
+              page_title: document.title,
+              page_location: window.location.href,
+            });
+          `}
+        </Script>
+
+        {/* Microsoft Clarity (optional) */}
+        <Script id="microsoft-clarity" strategy="afterInteractive">
+          {`
+            (function(c,l,a,r,i,t,y){
+              c[a]=c[a]||function(){(c[a].q=c[a].q||[]).push(arguments)};
+              t=l.createElement(r);t.async=1;t.src="https://www.clarity.ms/tag/"+i;
+              y=l.getElementsByTagName(r)[0];y.parentNode.insertBefore(t,y);
+            })(window, document, "clarity", "script", "CLARITY_PROJECT_ID");
+          `}
+        </Script>
 
         {/* Error boundary fallback (handled by Next.js in production) */}
         <noscript>
@@ -340,29 +337,27 @@ export default function RootLayout({
         </div>
 
         {/* Performance monitoring script (optional) */}
-        <script
-          dangerouslySetInnerHTML={{
-            __html: `
-              // Basic performance monitoring
-              if ('performance' in window && 'observe' in window.PerformanceObserver.prototype) {
-                const observer = new PerformanceObserver((list) => {
-                  for (const entry of list.getEntries()) {
-                    if (entry.entryType === 'largest-contentful-paint') {
-                      console.log('LCP:', entry.startTime);
-                    }
-                    if (entry.entryType === 'first-input') {
-                      console.log('FID:', entry.processingStart - entry.startTime);
-                    }
-                    if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
-                      console.log('CLS:', entry.value);
-                    }
+        <Script id="performance-monitoring" strategy="afterInteractive">
+          {`
+            // Basic performance monitoring
+            if ('performance' in window && 'observe' in window.PerformanceObserver.prototype) {
+              const observer = new PerformanceObserver((list) => {
+                for (const entry of list.getEntries()) {
+                  if (entry.entryType === 'largest-contentful-paint') {
+                    console.log('LCP:', entry.startTime);
                   }
-                });
-                observer.observe({entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift']});
-              }
-            `,
-          }}
-        />
+                  if (entry.entryType === 'first-input') {
+                    console.log('FID:', entry.processingStart - entry.startTime);
+                  }
+                  if (entry.entryType === 'layout-shift' && !entry.hadRecentInput) {
+                    console.log('CLS:', entry.value);
+                  }
+                }
+              });
+              observer.observe({entryTypes: ['largest-contentful-paint', 'first-input', 'layout-shift']});
+            }
+          `}
+        </Script>
       </body>
     </html>
   );

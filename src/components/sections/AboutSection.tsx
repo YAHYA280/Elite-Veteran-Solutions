@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import {
   CheckCircle,
   Award,
@@ -10,7 +9,6 @@ import {
   Users,
   Lightbulb,
   Shield,
-  Star,
   TrendingUp,
   Globe,
   Lock,
@@ -83,7 +81,7 @@ const AboutSection = () => {
     {
       title: "Veteran-Owned Small Business (VOSB)",
       description: "Certified by the SBA as a veteran-owned enterprise",
-      icon: Star,
+      icon: Award,
       status: "Active",
     },
     {
@@ -109,7 +107,7 @@ const AboutSection = () => {
   const achievements = [
     { metric: "15+", label: "Years of Experience", icon: TrendingUp },
     { metric: "200+", label: "Successful Projects", icon: Target },
-    { metric: "98%", label: "Client Satisfaction", icon: Star },
+    { metric: "98%", label: "Client Satisfaction", icon: Award },
     { metric: "24/7", label: "Support Available", icon: Globe },
   ];
 
