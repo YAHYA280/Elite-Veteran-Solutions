@@ -2,7 +2,8 @@
 
 import React, { useState, useEffect } from "react";
 import { Button } from "@/components/ui/button";
-import { Menu, X, Shield, Star } from "lucide-react";
+import { Menu, X } from "lucide-react";
+import Image from "next/image";
 
 const Navbar = () => {
   const [isScrolled, setIsScrolled] = useState(false);
@@ -34,34 +35,29 @@ const Navbar = () => {
 
   return (
     <>
-      {/* Main Navigation - Fixed at top */}
       <nav
         className={`fixed w-full top-0 z-50 transition-all duration-300 ${
           isScrolled
-            ? "navbar-blur shadow-2xl"
+            ? "bg-gray-900/95 backdrop-blur-md shadow-xl border-b border-gray-800"
             : "bg-gray-900/90 backdrop-blur-sm"
         }`}
       >
         <div className="container-custom">
           <div className="flex items-center justify-between h-20">
-            {/* Enhanced Logo */}
-            <div className="flex items-center space-x-4 group">
+            {/* Logo */}
+            <div
+              className="flex items-center space-x-3 group cursor-pointer"
+              onClick={() => scrollToSection("#home")}
+            >
               <div className="relative">
-                <div className="w-14 h-14 bg-gradient-to-br from-orange-500 to-orange-600 rounded-xl flex items-center justify-center shadow-lg group-hover:shadow-orange-500/25 transition-all duration-300">
-                  <Shield className="w-8 h-8 text-white group-hover:scale-110 transition-transform" />
-                </div>
-                <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-gray-900 animate-pulse"></div>
-              </div>
-              <div>
-                <h1 className="text-2xl font-bold text-white group-hover:text-orange-400 transition-colors">
-                  ELITE
-                </h1>
-                <p className="text-sm text-orange-400 font-semibold tracking-wide">
-                  VETERAN SOLUTIONS
-                </p>
-                <p className="text-xs text-gray-400 font-medium">
-                  SERVICE BEYOND EXPECTATIONS
-                </p>
+                <Image
+                  src="/Logo.png"
+                  alt="Elite Veteran Solutions Logo"
+                  width={200}
+                  height={80}
+                  className="group-hover:scale-105 transition-transform duration-300"
+                  priority
+                />
               </div>
             </div>
 
@@ -79,7 +75,7 @@ const Navbar = () => {
               ))}
               <Button
                 onClick={() => scrollToSection("#contact")}
-                className="btn-primary ml-4"
+                className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
               >
                 Get Quote
               </Button>
@@ -103,9 +99,9 @@ const Navbar = () => {
           </div>
         </div>
 
-        {/* Enhanced Mobile Menu */}
+        {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-gray-900/95 backdrop-blur-md border-t border-gray-700">
+          <div className="lg:hidden bg-gray-900/95 backdrop-blur-md border-t border-gray-800">
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
                 <button
@@ -116,10 +112,10 @@ const Navbar = () => {
                   {link.label}
                 </button>
               ))}
-              <div className="pt-4 border-t border-gray-700">
+              <div className="pt-4 border-t border-gray-800">
                 <Button
                   onClick={() => scrollToSection("#contact")}
-                  className="w-full btn-primary"
+                  className="w-full bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-medium"
                 >
                   Get Quote
                 </Button>
