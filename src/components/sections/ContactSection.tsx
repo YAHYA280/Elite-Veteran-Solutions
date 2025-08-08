@@ -24,7 +24,7 @@ import {
 
 const ContactSection = () => {
   const sectionRef = useRef<HTMLDivElement>(null);
-  const formRef = useRef<HTMLFormElement>(null);
+  // const formRef = useRef<HTMLFormElement>(null);
 
   const [formData, setFormData] = useState({
     firstName: "",
@@ -177,7 +177,7 @@ const ContactSection = () => {
           <div className="inline-flex items-center bg-gradient-to-r from-red-600/10 to-red-700/10 backdrop-blur-xl border border-red-500/20 rounded-full px-8 py-4 mb-8">
             <MessageSquare className="w-5 h-5 text-red-400 mr-3" />
             <span className="text-red-300 font-medium text-lg">
-              Let's Start Your Journey
+              Let&apos;s Start Your Journey
             </span>
           </div>
 
@@ -189,7 +189,7 @@ const ContactSection = () => {
 
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
             Partner with Elite Veteran Solutions to navigate complex government
-            contracting and achieve exceptional results. Let's discuss your
+            contracting and achieve exceptional results. Let&apos;s discuss your
             vision.
           </p>
 
@@ -273,8 +273,8 @@ const ContactSection = () => {
                       Message Sent Successfully!
                     </h3>
                     <p className="text-xl text-gray-300 mb-8">
-                      Thank you for reaching out. We'll get back to you within
-                      2-4 hours.
+                      Thank you for reaching out. We&apos;ll get back to you
+                      within 2-4 hours.
                     </p>
                     <div className="flex items-center justify-center space-x-3 text-gray-400">
                       <Clock className="w-5 h-5" />
@@ -288,8 +288,8 @@ const ContactSection = () => {
                         Send Us a Message
                       </h3>
                       <p className="text-gray-400">
-                        Ready to get started? Fill out the form below and we'll
-                        be in touch.
+                        Ready to get started? Fill out the form below and
+                        we&apos;ll be in touch.
                       </p>
                     </div>
 

@@ -329,7 +329,7 @@ const ServicesSection = () => {
             </h3>
             <p className="text-gray-300 text-xl max-w-4xl mx-auto leading-relaxed">
               Navigate complex federal procurement processes with our expert
-              guidance. We'll help you identify, pursue, and win lucrative
+              guidance. We&apos;ll help you identify, pursue, and win lucrative
               government contracts with proven methodologies.
             </p>
           </div>

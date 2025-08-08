@@ -8,7 +8,6 @@ import {
   MapPin,
   ArrowUp,
   Globe,
-  Shield,
   ExternalLink,
 } from "lucide-react";
 import Image from "next/image";
@@ -84,23 +83,23 @@ const Footer = () => {
     },
   ];
 
-  const certifications = [
-    {
-      title: "VOSB",
-      subtitle: "Veteran-Owned Small Business",
-      description: "SBA Certified",
-    },
-    {
-      title: "SDVOSB",
-      subtitle: "Service-Disabled Veteran-Owned",
-      description: "SBA Certified",
-    },
-    {
-      title: "ISO 27001",
-      subtitle: "Information Security",
-      description: "International Standard",
-    },
-  ];
+  // const certifications = [
+  //   {
+  //     title: "VOSB",
+  //     subtitle: "Veteran-Owned Small Business",
+  //     description: "SBA Certified",
+  //   },
+  //   {
+  //     title: "SDVOSB",
+  //     subtitle: "Service-Disabled Veteran-Owned",
+  //     description: "SBA Certified",
+  //   },
+  //   {
+  //     title: "ISO 27001",
+  //     subtitle: "Information Security",
+  //     description: "International Standard",
+  //   },
+  // ];
 
   return (
     <footer className="bg-black relative overflow-hidden">
