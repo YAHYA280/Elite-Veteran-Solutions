@@ -4,19 +4,19 @@ import dynamic from "next/dynamic";
 // Optimized dynamic imports for better performance
 const Navbar = dynamic(() => import("@/components/layout/Navbar"), {
   loading: () => (
-    <div className="h-20 bg-gray-900 animate-pulse">
-      <div className="h-20 bg-gray-900/90"></div>
+    <div className="h-20 bg-background animate-pulse">
+      <div className="h-20 bg-muted/30"></div>
     </div>
   ),
 });
 
 const HeroSection = dynamic(() => import("@/components/sections/HeroSection"), {
   loading: () => (
-    <div className="min-h-screen bg-gradient-to-br from-gray-900 via-gray-800 to-gray-900 flex items-center justify-center">
+    <div className="min-h-screen bg-gradient-to-br from-background via-muted to-background flex items-center justify-center">
       <div className="text-center">
-        <div className="w-16 h-16 bg-orange-500/20 rounded-full animate-pulse mx-auto mb-4"></div>
-        <div className="h-8 bg-gray-700/30 rounded w-64 mx-auto mb-4 animate-pulse"></div>
-        <div className="h-4 bg-gray-700/20 rounded w-48 mx-auto animate-pulse"></div>
+        <div className="w-16 h-16 bg-primary/20 rounded-full animate-pulse mx-auto mb-4"></div>
+        <div className="h-8 bg-muted/30 rounded w-64 mx-auto mb-4 animate-pulse"></div>
+        <div className="h-4 bg-muted/20 rounded w-48 mx-auto animate-pulse"></div>
       </div>
     </div>
   ),
@@ -26,11 +26,11 @@ const AboutSection = dynamic(
   () => import("@/components/sections/AboutSection"),
   {
     loading: () => (
-      <div className="h-96 bg-gray-800 flex items-center justify-center">
+      <div className="h-96 bg-muted/30 flex items-center justify-center">
         <div className="text-center">
-          <div className="w-12 h-12 bg-orange-500/20 rounded-lg animate-pulse mx-auto mb-4"></div>
-          <div className="h-6 bg-gray-700/30 rounded w-48 mx-auto mb-2 animate-pulse"></div>
-          <div className="h-4 bg-gray-700/20 rounded w-32 mx-auto animate-pulse"></div>
+          <div className="w-12 h-12 bg-primary/20 rounded-lg animate-pulse mx-auto mb-4"></div>
+          <div className="h-6 bg-muted/30 rounded w-48 mx-auto mb-2 animate-pulse"></div>
+          <div className="h-4 bg-muted/20 rounded w-32 mx-auto animate-pulse"></div>
         </div>
       </div>
     ),
@@ -41,11 +41,11 @@ const ServicesSection = dynamic(
   () => import("@/components/sections/ServicesSection"),
   {
     loading: () => (
-      <div className="h-96 bg-gray-900 flex items-center justify-center">
+      <div className="h-96 bg-background flex items-center justify-center">
         <div className="text-center">
           <div className="w-12 h-12 bg-blue-500/20 rounded-lg animate-pulse mx-auto mb-4"></div>
-          <div className="h-6 bg-gray-700/30 rounded w-48 mx-auto mb-2 animate-pulse"></div>
-          <div className="h-4 bg-gray-700/20 rounded w-32 mx-auto animate-pulse"></div>
+          <div className="h-6 bg-muted/30 rounded w-48 mx-auto mb-2 animate-pulse"></div>
+          <div className="h-4 bg-muted/20 rounded w-32 mx-auto animate-pulse"></div>
         </div>
       </div>
     ),
@@ -56,11 +56,11 @@ const ContactSection = dynamic(
   () => import("@/components/sections/ContactSection"),
   {
     loading: () => (
-      <div className="h-96 bg-gray-800 flex items-center justify-center">
+      <div className="h-96 bg-muted/30 flex items-center justify-center">
         <div className="text-center">
           <div className="w-12 h-12 bg-green-500/20 rounded-lg animate-pulse mx-auto mb-4"></div>
-          <div className="h-6 bg-gray-700/30 rounded w-48 mx-auto mb-2 animate-pulse"></div>
-          <div className="h-4 bg-gray-700/20 rounded w-32 mx-auto animate-pulse"></div>
+          <div className="h-6 bg-muted/30 rounded w-48 mx-auto mb-2 animate-pulse"></div>
+          <div className="h-4 bg-muted/20 rounded w-32 mx-auto animate-pulse"></div>
         </div>
       </div>
     ),
@@ -69,14 +69,14 @@ const ContactSection = dynamic(
 
 const Footer = dynamic(() => import("@/components/layout/Footer"), {
   loading: () => (
-    <div className="h-64 bg-gray-900 border-t border-gray-800 animate-pulse">
+    <div className="h-64 bg-background border-t border-border animate-pulse">
       <div className="container mx-auto px-4 py-8">
         <div className="grid md:grid-cols-4 gap-8">
           {[1, 2, 3, 4].map((i) => (
             <div key={i} className="space-y-3">
-              <div className="h-4 bg-gray-700/30 rounded w-20"></div>
-              <div className="h-3 bg-gray-700/20 rounded w-32"></div>
-              <div className="h-3 bg-gray-700/20 rounded w-28"></div>
+              <div className="h-4 bg-muted/30 rounded w-20"></div>
+              <div className="h-3 bg-muted/20 rounded w-32"></div>
+              <div className="h-3 bg-muted/20 rounded w-28"></div>
             </div>
           ))}
         </div>
@@ -202,7 +202,7 @@ export const viewport = {
 
 export default function Home() {
   return (
-    <main className="min-h-screen bg-gray-900 text-white overflow-x-hidden">
+    <main className="min-h-screen bg-background text-foreground overflow-x-hidden">
       {/* Enhanced performance with proper loading states */}
       <Navbar />
       <HeroSection />

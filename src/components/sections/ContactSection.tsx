@@ -2,7 +2,6 @@
 
 import React, { useEffect, useRef, useState } from "react";
 import { Card, CardContent } from "@/components/ui/card";
-import { Badge } from "@/components/ui/badge";
 import { Button } from "@/components/ui/button";
 import { Input } from "@/components/ui/input";
 import { Textarea } from "@/components/ui/textarea";
@@ -19,6 +18,9 @@ import {
   Calendar,
   Users,
   Shield,
+  ArrowUp,
+  LineChart,
+  Save,
 } from "lucide-react";
 
 const ContactSection = () => {
@@ -116,42 +118,9 @@ const ContactSection = () => {
     }, 2000);
   };
 
-  const contactInfo = [
-    {
-      icon: MapPin,
-      title: "Visit Our Office",
-      details: ["4950 Woodstone DR APT 321", "San Antonio, Texas 78230-1199"],
-      color: "text-blue-400",
-      bg: "bg-blue-400/10",
-      border: "border-blue-400/20",
-    },
-    {
-      icon: Phone,
-      title: "Call Us Directly",
-      details: ["888-747-9909", "Available 24/7 for emergencies"],
-      color: "text-green-400",
-      bg: "bg-green-400/10",
-      border: "border-green-400/20",
-      link: "tel:888-747-9909",
-    },
-    {
-      icon: Mail,
-      title: "Send Us an Email",
-      details: ["info@elitevetsolutions.com", "Response within 2-4 hours"],
-      color: "text-orange-400",
-      bg: "bg-orange-400/10",
-      border: "border-orange-400/20",
-      link: "mailto:info@elitevetsolutions.com",
-    },
-    {
-      icon: Clock,
-      title: "Business Hours",
-      details: ["Mon-Fri: 8:00 AM - 8:00 PM", "Sat: 10:00 AM - 4:00 PM"],
-      color: "text-purple-400",
-      bg: "bg-purple-400/10",
-      border: "border-purple-400/20",
-    },
-  ];
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
 
   const projectTypes = [
     "Cybersecurity Assessment",
@@ -162,166 +131,238 @@ const ContactSection = () => {
     "Other",
   ];
 
-  const quickStats = [
-    { icon: MessageSquare, value: "< 2 hrs", label: "Response Time" },
-    { icon: Calendar, value: "24-48 hrs", label: "Project Start" },
-    { icon: Users, value: "98%", label: "Client Satisfaction" },
-    { icon: Award, value: "15+", label: "Years Experience" },
-  ];
-
   return (
     <section
       id="contact"
-      className="section-padding bg-gray-800 relative overflow-hidden"
+      className="lg:py-20 py-10 bg-white dark:bg-gray-800 relative overflow-hidden"
     >
-      {/* Background Elements */}
+      {/* Background Pattern */}
       <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-40 h-40 border border-orange-400 rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 border border-blue-400 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-orange-400 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-400 rounded-full animate-bounce animation-delay-400"></div>
+        <div className="absolute top-20 left-20 w-32 h-32 border border-orange-400 rounded-full"></div>
+        <div className="absolute bottom-20 right-20 w-24 h-24 border border-orange-400 rounded-full"></div>
+        <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-orange-400 rounded-full"></div>
+        <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-orange-400 rounded-full"></div>
       </div>
 
-      <div ref={sectionRef} className="container-custom relative z-10">
-        {/* Section Header */}
-        <div className="animate-on-scroll text-center mb-20">
-          <div className="inline-flex items-center bg-orange-600/20 backdrop-blur-sm border border-orange-500/30 rounded-full px-6 py-3 mb-8">
-            <Mail className="w-5 h-5 text-orange-400 mr-2" />
-            <span className="text-orange-300 font-medium">
-              Ready to Get Started?
-            </span>
+      <div
+        ref={sectionRef}
+        className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10"
+      >
+        {/* Contact Cards Section */}
+        <div className="animate-on-scroll flex flex-wrap items-center justify-around gap-6 mb-20">
+          <div className="text-center">
+            <div className="h-20 w-20 rounded-md border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white bg-white/5 dark:bg-gray-800/50 mx-auto flex items-center justify-center hover:scale-110 transition-transform">
+              <Phone className="h-10 w-10" />
+            </div>
+            <h4 className="text-xl font-medium text-gray-900 dark:text-white mt-5">
+              Call Me
+            </h4>
+            <p className="text-base font-normal text-gray-700 dark:text-gray-300 mt-1">
+              <a
+                href="tel:888-747-9909"
+                className="hover:text-orange-600 transition-colors"
+              >
+                +0088 66956 66
+              </a>
+            </p>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
-            Ready to Transform Your
-            <span className="block gradient-text mt-2">
-              Government Contracting?
-            </span>
-          </h2>
-
-          <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-            Let&apos;s discuss how Elite Veteran Solutions can help you navigate
-            the complex world of government contracting and achieve mission
-            success. Contact us today for a consultation.
-          </p>
-
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
-            {quickStats.map((stat, index) => (
-              <div
-                key={index}
-                className="text-center p-4 bg-gray-900/30 backdrop-blur-sm border border-gray-700/30 rounded-xl"
+          <div className="text-center">
+            <div className="h-20 w-20 rounded-md border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white bg-white/5 dark:bg-gray-800/50 mx-auto flex items-center justify-center hover:scale-110 transition-transform">
+              <Mail className="h-10 w-10" />
+            </div>
+            <h4 className="text-xl font-medium text-gray-900 dark:text-white mt-5">
+              Email me
+            </h4>
+            <p className="text-base font-normal text-gray-700 dark:text-gray-300 mt-1">
+              <a
+                href="mailto:info@elitevetsolutions.com"
+                className="hover:text-orange-600 transition-colors"
               >
-                <div className="w-10 h-10 bg-orange-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <stat.icon className="w-5 h-5 text-orange-400" />
-                </div>
-                <div className="text-lg font-bold text-white">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
-              </div>
-            ))}
+                info@elitevetsolutions.com
+              </a>
+            </p>
+          </div>
+
+          <div className="text-center">
+            <div className="h-20 w-20 rounded-md border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white bg-white/5 dark:bg-gray-800/50 mx-auto flex items-center justify-center hover:scale-110 transition-transform">
+              <LineChart className="h-10 w-10" />
+            </div>
+            <h4 className="text-xl font-medium text-gray-900 dark:text-white mt-5">
+              Follow Me
+            </h4>
+            <p className="text-base font-normal text-gray-700 dark:text-gray-300 mt-1">
+              LinkedIn.com/elite-veteran
+            </p>
+          </div>
+
+          <div className="text-center">
+            <div className="h-20 w-20 rounded-md border border-gray-300 dark:border-gray-600 text-gray-900 dark:text-white bg-white/5 dark:bg-gray-800/50 mx-auto flex items-center justify-center hover:scale-110 transition-transform">
+              <Save className="h-10 w-10" />
+            </div>
+            <h4 className="text-xl font-medium text-gray-900 dark:text-white mt-5">
+              My Work
+            </h4>
+            <p className="text-base font-normal text-gray-700 dark:text-gray-300 mt-1">
+              elitevetsolutions.com
+            </p>
           </div>
         </div>
 
+        {/* Main Contact Form Section */}
         <div className="grid lg:grid-cols-5 gap-12">
           {/* Contact Information */}
           <div className="lg:col-span-2 space-y-8">
             <div className="animate-on-scroll">
-              <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
+              <h3 className="text-2xl font-bold text-gray-900 dark:text-white mb-8 flex items-center">
                 <Globe className="w-6 h-6 text-orange-400 mr-3" />
                 Get in Touch
               </h3>
 
               <div className="space-y-6">
-                {contactInfo.map((info, index) => (
-                  <div
-                    key={index}
-                    className={`p-6 bg-gray-900/50 backdrop-blur-sm border ${info.border} rounded-2xl hover:bg-gray-900/70 transition-all group`}
-                  >
-                    <div className="flex items-start space-x-4">
-                      <div
-                        className={`w-14 h-14 ${info.bg} backdrop-blur-sm border border-gray-600/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}
-                      >
-                        <info.icon className={`w-6 h-6 ${info.color}`} />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-white mb-3 group-hover:text-orange-400 transition-colors">
-                          {info.title}
-                        </h4>
-                        {info.details.map((detail, detailIndex) => (
-                          <p
-                            key={detailIndex}
-                            className="text-gray-300 text-sm mb-1"
-                          >
-                            {info.link && detailIndex === 0 ? (
-                              <a
-                                href={info.link}
-                                className="hover:text-orange-400 transition-colors font-medium"
-                              >
-                                {detail}
-                              </a>
-                            ) : (
-                              detail
-                            )}
-                          </p>
-                        ))}
-                      </div>
+                <div className="p-6 bg-gray-100 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/30 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-900/70 transition-all group">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-14 h-14 bg-blue-400/10 backdrop-blur-sm border border-blue-400/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <MapPin className="w-6 h-6 text-blue-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-orange-400 transition-colors">
+                        Visit Our Office
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm mb-1">
+                        4950 Woodstone DR APT 321
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">
+                        San Antonio, Texas 78230-1199
+                      </p>
                     </div>
                   </div>
-                ))}
+                </div>
+
+                <div className="p-6 bg-gray-100 dark:bg-gray-900/50 backdrop-blur-sm border border-green-400/20 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-900/70 transition-all group">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-14 h-14 bg-green-400/10 backdrop-blur-sm border border-green-400/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Phone className="w-6 h-6 text-green-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-orange-400 transition-colors">
+                        Call Us Directly
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm mb-1">
+                        <a
+                          href="tel:888-747-9909"
+                          className="hover:text-orange-400 transition-colors font-medium"
+                        >
+                          888-747-9909
+                        </a>
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">
+                        Available 24/7 for emergencies
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-gray-100 dark:bg-gray-900/50 backdrop-blur-sm border border-orange-400/20 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-900/70 transition-all group">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-14 h-14 bg-orange-400/10 backdrop-blur-sm border border-orange-400/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Mail className="w-6 h-6 text-orange-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-orange-400 transition-colors">
+                        Send Us an Email
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm mb-1">
+                        <a
+                          href="mailto:info@elitevetsolutions.com"
+                          className="hover:text-orange-400 transition-colors font-medium"
+                        >
+                          info@elitevetsolutions.com
+                        </a>
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">
+                        Response within 2-4 hours
+                      </p>
+                    </div>
+                  </div>
+                </div>
+
+                <div className="p-6 bg-gray-100 dark:bg-gray-900/50 backdrop-blur-sm border border-purple-400/20 rounded-2xl hover:bg-gray-50 dark:hover:bg-gray-900/70 transition-all group">
+                  <div className="flex items-start space-x-4">
+                    <div className="w-14 h-14 bg-purple-400/10 backdrop-blur-sm border border-purple-400/20 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform">
+                      <Clock className="w-6 h-6 text-purple-400" />
+                    </div>
+                    <div className="flex-1">
+                      <h4 className="font-semibold text-gray-900 dark:text-white mb-3 group-hover:text-orange-400 transition-colors">
+                        Business Hours
+                      </h4>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm mb-1">
+                        Mon-Fri: 8:00 AM - 8:00 PM
+                      </p>
+                      <p className="text-gray-600 dark:text-gray-300 text-sm">
+                        Sat: 10:00 AM - 4:00 PM
+                      </p>
+                    </div>
+                  </div>
+                </div>
               </div>
             </div>
 
             {/* Certifications */}
-            <div className="animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
-              <h4 className="font-bold text-white mb-6 flex items-center">
+            <div className="animate-on-scroll bg-gray-100 dark:bg-gray-900/50 backdrop-blur-sm border border-gray-200 dark:border-gray-700/50 rounded-2xl p-8">
+              <h4 className="font-bold text-gray-900 dark:text-white mb-6 flex items-center">
                 <Shield className="w-5 h-5 text-green-400 mr-3" />
                 Our Certifications
               </h4>
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-gray-800/30 rounded-xl border border-gray-600/30">
+                <div className="text-center p-4 bg-white dark:bg-gray-800/30 rounded-xl border border-gray-200 dark:border-gray-600/30">
                   <div className="w-16 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <span className="text-white text-xs font-bold">SBA</span>
                   </div>
-                  <p className="text-xs text-gray-300 font-medium mb-1">
+                  <p className="text-xs text-gray-700 dark:text-gray-300 font-medium mb-1">
                     Veteran-Owned
                   </p>
-                  <p className="text-xs text-gray-400">Small Business</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    Small Business
+                  </p>
                 </div>
-                <div className="text-center p-4 bg-gray-800/30 rounded-xl border border-gray-600/30">
+                <div className="text-center p-4 bg-white dark:bg-gray-800/30 rounded-xl border border-gray-200 dark:border-gray-600/30">
                   <div className="w-16 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
                     <span className="text-white text-xs font-bold">SBA</span>
                   </div>
-                  <p className="text-xs text-gray-300 font-medium mb-1">
+                  <p className="text-xs text-gray-700 dark:text-gray-300 font-medium mb-1">
                     Service-Disabled
                   </p>
-                  <p className="text-xs text-gray-400">Veteran-Owned</p>
+                  <p className="text-xs text-gray-500 dark:text-gray-400">
+                    Veteran-Owned
+                  </p>
                 </div>
               </div>
               <div className="mt-4 text-center">
-                <Badge className="bg-green-600/20 text-green-400 border border-green-600/30">
+                <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-green-600/20 text-green-600 border border-green-600/30">
                   ISO 27001 Certified
-                </Badge>
+                </span>
               </div>
             </div>
           </div>
 
           {/* Contact Form */}
           <div className="lg:col-span-3">
-            <Card className="animate-on-scroll bg-gray-900/50 backdrop-blur-sm border-gray-700/50 hover:border-orange-500/30 transition-all">
+            <Card className="animate-on-scroll bg-white dark:bg-gray-900/50 backdrop-blur-sm border-gray-200 dark:border-gray-700/50 hover:border-orange-500/30 transition-all">
               <CardContent className="p-8">
                 {isSubmitted ? (
                   <div className="text-center py-16">
                     <div className="w-20 h-20 bg-green-600/20 backdrop-blur-sm border border-green-600/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
                       <CheckCircle className="w-10 h-10 text-green-400" />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">
+                    <h3 className="text-3xl font-bold text-gray-900 dark:text-white mb-4">
                       Message Sent Successfully!
                     </h3>
-                    <p className="text-gray-300 mb-6">
-                      Thank you for contacting Elite Veteran Solutions.
-                      We&apos;ll get back to you within 2-4 hours.
+                    <p className="text-gray-600 dark:text-gray-300 mb-6">
+                      Thank you for contacting Elite Veteran Solutions. We'll
+                      get back to you within 2-4 hours.
                     </p>
-                    <div className="flex items-center justify-center space-x-2 text-sm text-gray-400">
+                    <div className="flex items-center justify-center space-x-2 text-sm text-gray-500 dark:text-gray-400">
                       <Clock className="w-4 h-4" />
                       <span>Expected response time: 2-4 hours</span>
                     </div>
@@ -329,12 +370,12 @@ const ContactSection = () => {
                 ) : (
                   <>
                     <div className="flex items-center justify-between mb-8">
-                      <h3 className="text-2xl font-bold text-white">
+                      <h3 className="text-2xl font-bold text-gray-900 dark:text-white">
                         Send Us a Message
                       </h3>
-                      <Badge className="bg-orange-600/20 text-orange-400 border border-orange-600/30">
+                      <span className="inline-flex items-center px-3 py-1 rounded-full text-xs font-medium bg-orange-600/20 text-orange-600 border border-orange-600/30">
                         Free Consultation
-                      </Badge>
+                      </span>
                     </div>
 
                     <form
@@ -344,7 +385,7 @@ const ContactSection = () => {
                     >
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             First Name *
                           </label>
                           <Input
@@ -353,10 +394,10 @@ const ContactSection = () => {
                             required
                             value={formData.firstName}
                             onChange={handleInputChange}
-                            className={`form-input ${
+                            className={`w-full px-4 py-3 bg-white dark:bg-gray-800 border rounded-lg text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all ${
                               errors.firstName
                                 ? "border-red-500 focus:border-red-500"
-                                : ""
+                                : "border-gray-300 dark:border-gray-600"
                             }`}
                             placeholder="Enter your first name"
                           />
@@ -367,7 +408,7 @@ const ContactSection = () => {
                           )}
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Last Name *
                           </label>
                           <Input
@@ -376,10 +417,10 @@ const ContactSection = () => {
                             required
                             value={formData.lastName}
                             onChange={handleInputChange}
-                            className={`form-input ${
+                            className={`w-full px-4 py-3 bg-white dark:bg-gray-800 border rounded-lg text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all ${
                               errors.lastName
                                 ? "border-red-500 focus:border-red-500"
-                                : ""
+                                : "border-gray-300 dark:border-gray-600"
                             }`}
                             placeholder="Enter your last name"
                           />
@@ -393,7 +434,7 @@ const ContactSection = () => {
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Email Address *
                           </label>
                           <Input
@@ -402,10 +443,10 @@ const ContactSection = () => {
                             required
                             value={formData.email}
                             onChange={handleInputChange}
-                            className={`form-input ${
+                            className={`w-full px-4 py-3 bg-white dark:bg-gray-800 border rounded-lg text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all ${
                               errors.email
                                 ? "border-red-500 focus:border-red-500"
-                                : ""
+                                : "border-gray-300 dark:border-gray-600"
                             }`}
                             placeholder="Enter your email"
                           />
@@ -416,7 +457,7 @@ const ContactSection = () => {
                           )}
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Phone Number
                           </label>
                           <Input
@@ -424,7 +465,7 @@ const ContactSection = () => {
                             type="tel"
                             value={formData.phone}
                             onChange={handleInputChange}
-                            className="form-input"
+                            className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all"
                             placeholder="(555) 123-4567"
                           />
                         </div>
@@ -432,7 +473,7 @@ const ContactSection = () => {
 
                       <div className="grid md:grid-cols-2 gap-6">
                         <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Company/Organization
                           </label>
                           <Input
@@ -440,19 +481,19 @@ const ContactSection = () => {
                             type="text"
                             value={formData.company}
                             onChange={handleInputChange}
-                            className="form-input"
+                            className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all"
                             placeholder="Your company name"
                           />
                         </div>
                         <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                          <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                             Project Type
                           </label>
                           <select
                             name="projectType"
                             value={formData.projectType}
                             onChange={handleInputChange}
-                            className="form-input"
+                            className="w-full px-4 py-3 bg-white dark:bg-gray-800 border border-gray-300 dark:border-gray-600 rounded-lg text-gray-900 dark:text-gray-100 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all"
                           >
                             <option value="">Select a service</option>
                             {projectTypes.map((type, index) => (
@@ -465,7 +506,7 @@ const ContactSection = () => {
                       </div>
 
                       <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <label className="block text-sm font-medium text-gray-700 dark:text-gray-300 mb-2">
                           Message *
                         </label>
                         <Textarea
@@ -474,10 +515,10 @@ const ContactSection = () => {
                           rows={6}
                           value={formData.message}
                           onChange={handleInputChange}
-                          className={`form-textarea ${
+                          className={`w-full px-4 py-3 bg-white dark:bg-gray-800 border rounded-lg text-gray-900 dark:text-gray-100 placeholder:text-gray-500 dark:placeholder:text-gray-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all resize-none ${
                             errors.message
                               ? "border-red-500 focus:border-red-500"
-                              : ""
+                              : "border-gray-300 dark:border-gray-600"
                           }`}
                           placeholder="Tell us about your project, timeline, and specific requirements..."
                         />
@@ -496,7 +537,7 @@ const ContactSection = () => {
                         >
                           {isSubmitting ? (
                             <>
-                              <div className="loading-spinner mr-2"></div>
+                              <div className="animate-spin rounded-full h-5 w-5 border-b-2 border-white mr-2"></div>
                               Sending Message...
                             </>
                           ) : (
@@ -509,7 +550,7 @@ const ContactSection = () => {
                         <Button
                           type="button"
                           variant="outline"
-                          className="px-8 py-4 border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
+                          className="px-8 py-4 border-gray-300 dark:border-gray-600 text-gray-700 dark:text-gray-300 hover:bg-gray-100 dark:hover:bg-gray-800 hover:text-gray-900 dark:hover:text-white"
                           onClick={() => window.open("tel:888-747-9909")}
                         >
                           <Phone className="w-4 h-4 mr-2" />
@@ -517,8 +558,8 @@ const ContactSection = () => {
                         </Button>
                       </div>
 
-                      <div className="text-center pt-4 border-t border-gray-700">
-                        <p className="text-sm text-gray-400">
+                      <div className="text-center pt-4 border-t border-gray-200 dark:border-gray-700">
+                        <p className="text-sm text-gray-500 dark:text-gray-400">
                           By submitting this form, you agree to our privacy
                           policy and terms of service.
                         </p>
@@ -531,48 +572,16 @@ const ContactSection = () => {
           </div>
         </div>
 
-        {/* Map Section */}
-        <div className="animate-on-scroll mt-20">
-          <Card className="bg-gray-900/50 backdrop-blur-sm border-gray-700/50 overflow-hidden">
-            <CardContent className="p-0">
-              <div className="h-96 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                <div className="text-center z-10">
-                  <div className="w-16 h-16 bg-orange-600/20 backdrop-blur-sm border border-orange-500/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-8 h-8 text-orange-400" />
-                  </div>
-                  <h4 className="text-xl font-bold text-white mb-2">
-                    Our Location
-                  </h4>
-                  <p className="text-gray-300 font-medium">
-                    San Antonio, Texas
-                  </p>
-                  <p className="text-sm text-gray-400 mb-4">
-                    Serving clients nationwide
-                  </p>
-                  <Button
-                    variant="outline"
-                    className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
-                    onClick={() =>
-                      window.open(
-                        "https://maps.google.com/?q=4950+Woodstone+DR+APT+321+San+Antonio+Texas+78230",
-                        "_blank"
-                      )
-                    }
-                  >
-                    View on Google Maps
-                  </Button>
-                </div>
-
-                {/* Background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-10 left-10 w-20 h-20 border border-orange-400 rounded-full"></div>
-                  <div className="absolute bottom-10 right-10 w-16 h-16 border border-blue-400 rounded-full"></div>
-                  <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                  <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
-                </div>
-              </div>
-            </CardContent>
-          </Card>
+        {/* Back to Top integrated in this section */}
+        <div className="flex justify-center mt-12">
+          <Button
+            onClick={scrollToTop}
+            variant="outline"
+            size="icon"
+            className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300 hover:scale-105"
+          >
+            <ArrowUp className="h-4 w-4" />
+          </Button>
         </div>
       </div>
     </section>
