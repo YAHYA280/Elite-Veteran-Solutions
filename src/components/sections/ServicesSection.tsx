@@ -76,8 +76,8 @@ const ServicesSection = () => {
         "IT consulting and system integration",
         "Digital transformation solutions",
       ],
-      gradient: "from-blue-500 to-blue-600",
-      iconColor: "text-blue-400",
+      gradient: "from-red-600 to-red-700",
+      iconColor: "text-red-400",
       price: "Starting $5k",
       popular: true,
     },
@@ -92,8 +92,8 @@ const ServicesSection = () => {
         "Transportation and distribution",
         "Procurement process improvement",
       ],
-      gradient: "from-green-500 to-green-600",
-      iconColor: "text-green-400",
+      gradient: "from-red-700 to-red-800",
+      iconColor: "text-red-400",
       price: "Starting $3k",
       popular: false,
     },
@@ -108,8 +108,8 @@ const ServicesSection = () => {
         "Contract administration support",
         "Compliance and regulatory guidance",
       ],
-      gradient: "from-purple-500 to-purple-600",
-      iconColor: "text-purple-400",
+      gradient: "from-red-800 to-red-900",
+      iconColor: "text-red-400",
       price: "Starting $2k",
       popular: false,
     },
@@ -120,26 +120,26 @@ const ServicesSection = () => {
       icon: Zap,
       title: "Rapid Deployment",
       description: "Quick response and implementation within 48-72 hours",
-      color: "text-yellow-400",
+      color: "text-red-400",
     },
     {
       icon: Globe,
       title: "Global Reach",
       description:
         "Nationwide service coverage with international capabilities",
-      color: "text-blue-400",
+      color: "text-red-500",
     },
     {
       icon: Lock,
       title: "Security First",
       description: "Military-grade security protocols and compliance",
-      color: "text-green-400",
+      color: "text-red-600",
     },
     {
       icon: TrendingUp,
       title: "Proven Results",
       description: "98% success rate with measurable ROI",
-      color: "text-purple-400",
+      color: "text-red-300",
     },
   ];
 
@@ -170,14 +170,22 @@ const ServicesSection = () => {
   return (
     <section
       id="services"
-      className="section-padding bg-gray-900 relative overflow-hidden"
+      className="section-padding bg-black relative overflow-hidden"
     >
+      {/* Background Pattern */}
+      <div className="absolute inset-0 opacity-5">
+        <div className="absolute top-20 left-20 w-40 h-40 border border-red-400 rounded-full animate-pulse"></div>
+        <div className="absolute bottom-20 right-20 w-32 h-32 border border-red-500 rounded-full animate-pulse animation-delay-500"></div>
+        <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-red-400 rounded-full animate-bounce"></div>
+        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-red-500 rounded-full animate-bounce animation-delay-700"></div>
+      </div>
+
       <div ref={sectionRef} className="container-custom relative z-10">
         {/* Section Header */}
         <div className="animate-on-scroll text-center mb-20">
-          <div className="inline-flex items-center bg-orange-600/20 border border-orange-500/30 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
-            <Target className="w-5 h-5 text-orange-400 mr-2" />
-            <span className="text-orange-300 font-medium">
+          <div className="inline-flex items-center bg-red-600/20 border border-red-500/30 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
+            <Target className="w-5 h-5 text-red-400 mr-2" />
+            <span className="text-red-300 font-medium">
               Expertise & Capabilities
             </span>
           </div>
@@ -201,53 +209,60 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className={`animate-on-scroll group bg-gray-800/50 border-gray-700/50 hover:border-orange-500/30 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden backdrop-blur-sm ${
-                service.popular ? "ring-2 ring-orange-500/30" : ""
+              className={`animate-on-scroll group bg-gradient-to-br from-black to-red-950/30 border-red-900/50 hover:border-red-500/50 transition-all duration-500 transform hover:-translate-y-3 overflow-hidden backdrop-blur-sm hover:shadow-2xl hover:shadow-red-500/20 ${
+                service.popular
+                  ? "ring-2 ring-red-500/40 shadow-lg shadow-red-500/20"
+                  : ""
               }`}
             >
               {service.popular && (
-                <div className="absolute top-4 right-4">
-                  <Badge className="bg-orange-600 text-white">
-                    Most Popular
+                <div className="absolute top-4 right-4 z-10">
+                  <Badge className="bg-gradient-to-r from-red-500 to-red-600 text-white border-red-400 shadow-lg">
+                    🔥 Most Popular
                   </Badge>
                 </div>
               )}
 
-              <CardContent className="p-0">
-                <div className="p-8">
+              <CardContent className="p-0 relative">
+                {/* Red glow effect */}
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500"></div>
+
+                <div className="p-8 relative z-10">
                   {/* Service Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center">
-                      <div className="w-14 h-14 bg-gray-700/50 rounded-xl flex items-center justify-center mr-4">
-                        <service.icon
-                          className={`w-7 h-7 ${service.iconColor}`}
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">
-                          {service.title}
-                        </h3>
-                        <p className="text-orange-400 font-medium text-sm">
-                          {service.price}
-                        </p>
-                      </div>
+                  <div className="flex items-center mb-6">
+                    <div className="w-16 h-16 bg-gradient-to-br from-red-600/20 to-red-800/20 border border-red-700/30 rounded-2xl flex items-center justify-center mr-4 group-hover:scale-110 transition-transform duration-300">
+                      <service.icon
+                        className={`w-8 h-8 ${service.iconColor} group-hover:text-red-300 transition-colors`}
+                      />
+                    </div>
+                    <div>
+                      <h3 className="text-2xl font-bold text-white group-hover:text-red-300 transition-colors mb-1">
+                        {service.title}
+                      </h3>
+                      <p className="text-red-400 font-semibold text-sm">
+                        {service.price}
+                      </p>
                     </div>
                   </div>
 
                   {/* Service Description */}
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-300 mb-8 leading-relaxed text-base">
                     {service.description}
                   </p>
 
                   {/* Service Features */}
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-4 mb-8">
                     {service.features.map((feature, featureIndex) => (
                       <div
                         key={featureIndex}
-                        className="flex items-start space-x-3"
+                        className="flex items-start space-x-3 group/feature"
                       >
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
+                        <div className="w-5 h-5 bg-red-600/20 rounded-full flex items-center justify-center flex-shrink-0 mt-0.5">
+                          <CheckCircle className="w-3 h-3 text-red-400" />
+                        </div>
+                        <span className="text-gray-300 text-sm leading-relaxed group-hover/feature:text-gray-200 transition-colors">
+                          {feature}
+                        </span>
                       </div>
                     ))}
                   </div>
@@ -255,17 +270,15 @@ const ServicesSection = () => {
                   {/* CTA Button */}
                   <Button
                     onClick={scrollToContact}
-                    className="w-full bg-gray-700/50 hover:bg-orange-600 text-gray-300 hover:text-white border border-gray-600/50 hover:border-orange-500 transition-all duration-300"
+                    className="w-full bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white border-0 transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-500/25 hover:shadow-red-500/40 font-semibold py-3"
                   >
-                    Learn More
-                    <ArrowRight className="ml-2 w-4 h-4" />
+                    Get Started
+                    <ArrowRight className="ml-2 w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </Button>
                 </div>
 
-                {/* Gradient Footer */}
-                <div
-                  className={`h-1 bg-gradient-to-r ${service.gradient}`}
-                ></div>
+                {/* Animated Gradient Footer */}
+                <div className="h-1 bg-gradient-to-r from-red-500 via-red-600 to-red-700 group-hover:h-2 transition-all duration-300"></div>
               </CardContent>
             </Card>
           ))}
@@ -273,62 +286,67 @@ const ServicesSection = () => {
 
         {/* Process Section */}
         <div className="animate-on-scroll mb-20">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Our Proven Process
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold text-white mb-6">
+              Our Proven <span className="gradient-text">Process</span>
             </h3>
-            <p className="text-gray-300 max-w-2xl mx-auto">
+            <p className="text-gray-300 max-w-3xl mx-auto text-lg leading-relaxed">
               We follow a systematic approach to ensure successful project
-              delivery and client satisfaction.
+              delivery and client satisfaction with military precision.
             </p>
           </div>
 
           <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-8">
             {processSteps.map((step, index) => (
-              <div key={index} className="text-center">
-                <div className="relative mb-6">
-                  <div className="w-14 h-14 bg-orange-600 rounded-xl flex items-center justify-center mx-auto text-white font-bold text-lg">
+              <div key={index} className="text-center group relative">
+                <div className="relative mb-8 z-20">
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-500 to-red-600 rounded-2xl flex items-center justify-center mx-auto text-white font-bold text-xl shadow-lg shadow-red-500/30 group-hover:scale-110 transition-transform duration-300 relative z-30">
                     {step.step}
                   </div>
                   {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-7 left-14 w-full h-0.5 bg-gradient-to-r from-orange-500/50 to-transparent"></div>
+                    <div className="hidden lg:block absolute top-8 left-16 w-full h-0.5 z-10">
+                      <div className="h-full bg-gradient-to-r from-red-500/60 via-red-400/40 to-transparent"></div>
+                    </div>
                   )}
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">
+                <h4 className="text-xl font-bold text-white mb-3 group-hover:text-red-300 transition-colors">
                   {step.title}
                 </h4>
-                <p className="text-gray-400 text-sm">{step.description}</p>
+                <p className="text-gray-400 leading-relaxed">
+                  {step.description}
+                </p>
               </div>
             ))}
           </div>
         </div>
 
         {/* Capabilities Section */}
-        <div className="animate-on-scroll bg-gray-800/50 border border-gray-700/50 rounded-2xl p-8 md:p-12 backdrop-blur-sm">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Why Choose Elite Veteran Solutions?
+        <div className="animate-on-scroll bg-gradient-to-br from-black to-red-950/20 border border-red-900/30 rounded-3xl p-8 md:p-12 backdrop-blur-sm shadow-2xl shadow-red-500/10">
+          <div className="text-center mb-16">
+            <h3 className="text-4xl font-bold text-white mb-6">
+              Why Choose{" "}
+              <span className="gradient-text">Elite Veteran Solutions</span>?
             </h3>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
+            <p className="text-gray-300 text-xl max-w-4xl mx-auto leading-relaxed">
               Navigate complex federal procurement processes with our expert
-              guidance. We&apos;ll help you identify, pursue, and win lucrative
+              guidance. We'll help you identify, pursue, and win lucrative
               government contracts with proven methodologies.
             </p>
           </div>
 
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
+          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-16">
             {capabilities.map((capability, index) => (
               <div
                 key={index}
-                className="text-center p-6 bg-gray-900/50 border border-gray-700/30 rounded-xl hover:border-orange-500/30 transition-all"
+                className="text-center p-8 bg-gradient-to-br from-red-900/20 to-black/50 border border-red-800/30 rounded-2xl hover:border-red-500/50 transition-all duration-300 group hover:transform hover:-translate-y-2"
               >
-                <div className="w-14 h-14 bg-gray-700/50 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <capability.icon className={`w-7 h-7 ${capability.color}`} />
+                <div className="w-16 h-16 bg-gradient-to-br from-red-600/20 to-red-800/20 rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300">
+                  <capability.icon className={`w-8 h-8 ${capability.color}`} />
                 </div>
-                <h4 className="text-lg font-semibold text-white mb-2">
+                <h4 className="text-xl font-bold text-white mb-4 group-hover:text-red-300 transition-colors">
                   {capability.title}
                 </h4>
-                <p className="text-gray-400 text-sm leading-relaxed">
+                <p className="text-gray-400 leading-relaxed group-hover:text-gray-300 transition-colors">
                   {capability.description}
                 </p>
               </div>
@@ -336,18 +354,18 @@ const ServicesSection = () => {
           </div>
 
           {/* Statistics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12 p-8 bg-black/30 rounded-2xl border border-red-900/20">
             {[
               { value: "200+", label: "Projects Completed" },
               { value: "98%", label: "Success Rate" },
               { value: "15+", label: "Years Experience" },
               { value: "24/7", label: "Support Available" },
             ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">
+              <div key={index} className="text-center group">
+                <div className="text-4xl font-bold text-white mb-3 group-hover:text-red-400 transition-colors">
                   {stat.value}
                 </div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
+                <div className="text-gray-400 font-medium">{stat.label}</div>
               </div>
             ))}
           </div>
@@ -356,10 +374,10 @@ const ServicesSection = () => {
             <Button
               onClick={scrollToContact}
               size="lg"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-10 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 group"
+              className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-12 py-4 text-xl font-bold rounded-xl transition-all duration-300 transform hover:scale-105 group shadow-2xl shadow-red-500/30 hover:shadow-red-500/50"
             >
               Start Your Project Today
-              <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+              <ArrowRight className="ml-4 h-6 w-6 group-hover:translate-x-2 transition-transform duration-300" />
             </Button>
           </div>
         </div>

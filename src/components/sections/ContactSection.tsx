@@ -19,6 +19,7 @@ import {
   Calendar,
   Users,
   Shield,
+  ExternalLink,
 } from "lucide-react";
 
 const ContactSection = () => {
@@ -67,7 +68,6 @@ const ContactSection = () => {
     const { name, value } = e.target;
     setFormData((prev) => ({ ...prev, [name]: value }));
 
-    // Clear error when user starts typing
     if (errors[name]) {
       setErrors((prev) => ({ ...prev, [name]: "" }));
     }
@@ -90,12 +90,9 @@ const ContactSection = () => {
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
-
     if (!validateForm()) return;
 
     setIsSubmitting(true);
-
-    // Simulate form submission
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
@@ -108,48 +105,41 @@ const ContactSection = () => {
         projectType: "",
         message: "",
       });
-
-      // Reset success message after 5 seconds
-      setTimeout(() => {
-        setIsSubmitted(false);
-      }, 5000);
+      setTimeout(() => setIsSubmitted(false), 5000);
     }, 2000);
   };
 
   const contactInfo = [
     {
-      icon: MapPin,
-      title: "Visit Our Office",
-      details: ["4950 Woodstone DR APT 321", "San Antonio, Texas 78230-1199"],
-      color: "text-blue-400",
-      bg: "bg-blue-400/10",
-      border: "border-blue-400/20",
-    },
-    {
       icon: Phone,
-      title: "Call Us Directly",
-      details: ["888-747-9909", "Available 24/7 for emergencies"],
-      color: "text-green-400",
-      bg: "bg-green-400/10",
-      border: "border-green-400/20",
+      title: "Call Us",
+      value: "888-747-9909",
+      subtitle: "24/7 Emergency Support",
       link: "tel:888-747-9909",
+      color: "from-red-500 to-red-600",
     },
     {
       icon: Mail,
-      title: "Send Us an Email",
-      details: ["info@elitevetsolutions.com", "Response within 2-4 hours"],
-      color: "text-orange-400",
-      bg: "bg-orange-400/10",
-      border: "border-orange-400/20",
+      title: "Email Us",
+      value: "info@elitevetsolutions.com",
+      subtitle: "Response within 2-4 hours",
       link: "mailto:info@elitevetsolutions.com",
+      color: "from-red-600 to-red-700",
+    },
+    {
+      icon: MapPin,
+      title: "Visit Us",
+      value: "San Antonio, Texas",
+      subtitle: "Serving clients nationwide",
+      link: "https://maps.google.com/?q=4950+Woodstone+DR+APT+321+San+Antonio+Texas+78230",
+      color: "from-red-700 to-red-800",
     },
     {
       icon: Clock,
       title: "Business Hours",
-      details: ["Mon-Fri: 8:00 AM - 8:00 PM", "Sat: 10:00 AM - 4:00 PM"],
-      color: "text-purple-400",
-      bg: "bg-purple-400/10",
-      border: "border-purple-400/20",
+      value: "Mon-Fri: 8AM-8PM",
+      subtitle: "Sat: 10AM-4PM",
+      color: "from-red-400 to-red-500",
     },
   ];
 
@@ -172,219 +162,177 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="section-padding bg-gray-800 relative overflow-hidden"
+      className="section-padding bg-gradient-to-br from-black via-red-950 to-red-800 relative overflow-hidden"
     >
-      {/* Background Elements */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-40 h-40 border border-orange-400 rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-32 h-32 border border-blue-400 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/4 w-3 h-3 bg-orange-400 rounded-full animate-bounce"></div>
-        <div className="absolute top-1/3 right-1/3 w-2 h-2 bg-blue-400 rounded-full animate-bounce animation-delay-400"></div>
+      {/* Elegant Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black via-red-950/20 to-black"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-red-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"></div>
       </div>
 
       <div ref={sectionRef} className="container-custom relative z-10">
-        {/* Section Header */}
-        <div className="animate-on-scroll text-center mb-20">
-          <div className="inline-flex items-center bg-orange-600/20 backdrop-blur-sm border border-orange-500/30 rounded-full px-6 py-3 mb-8">
-            <Mail className="w-5 h-5 text-orange-400 mr-2" />
-            <span className="text-orange-300 font-medium">
-              Ready to Get Started?
+        {/* Enhanced Section Header */}
+        <div className="animate-on-scroll text-center mb-16">
+          <div className="inline-flex items-center bg-gradient-to-r from-red-600/10 to-red-700/10 backdrop-blur-xl border border-red-500/20 rounded-full px-8 py-4 mb-8">
+            <MessageSquare className="w-5 h-5 text-red-400 mr-3" />
+            <span className="text-red-300 font-medium text-lg">
+              Let's Start Your Journey
             </span>
           </div>
 
-          <h2 className="text-4xl md:text-6xl font-bold text-white mb-8 leading-tight">
-            Ready to Transform Your
-            <span className="block gradient-text mt-2">
-              Government Contracting?
-            </span>
+          <h2 className="text-5xl md:text-7xl font-bold text-white mb-8 leading-tight">
+            Ready to <span className="gradient-text">Transform</span>
+            <br />
+            Your Success?
           </h2>
 
           <p className="text-xl text-gray-300 max-w-4xl mx-auto leading-relaxed mb-12">
-            Let&apos;s discuss how Elite Veteran Solutions can help you navigate
-            the complex world of government contracting and achieve mission
-            success. Contact us today for a consultation.
+            Partner with Elite Veteran Solutions to navigate complex government
+            contracting and achieve exceptional results. Let's discuss your
+            vision.
           </p>
 
-          {/* Quick Stats */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-4xl mx-auto">
+          {/* Improved Quick Stats */}
+          <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-5xl mx-auto">
             {quickStats.map((stat, index) => (
               <div
                 key={index}
-                className="text-center p-4 bg-gray-900/30 backdrop-blur-sm border border-gray-700/30 rounded-xl"
+                className="group relative p-6 bg-gradient-to-br from-black/60 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-2xl hover:border-red-500/50 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="w-10 h-10 bg-orange-600/20 rounded-lg flex items-center justify-center mx-auto mb-2">
-                  <stat.icon className="w-5 h-5 text-orange-400" />
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                <div className="relative z-10">
+                  <div className="w-12 h-12 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                    <stat.icon className="w-6 h-6 text-red-400" />
+                  </div>
+                  <div className="text-2xl font-bold text-white mb-1">
+                    {stat.value}
+                  </div>
+                  <div className="text-sm text-gray-400">{stat.label}</div>
                 </div>
-                <div className="text-lg font-bold text-white">{stat.value}</div>
-                <div className="text-sm text-gray-400">{stat.label}</div>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="grid lg:grid-cols-5 gap-12">
-          {/* Contact Information */}
-          <div className="lg:col-span-2 space-y-8">
-            <div className="animate-on-scroll">
-              <h3 className="text-2xl font-bold text-white mb-8 flex items-center">
-                <Globe className="w-6 h-6 text-orange-400 mr-3" />
-                Get in Touch
-              </h3>
-
-              <div className="space-y-6">
-                {contactInfo.map((info, index) => (
+        {/* Contact Cards Section */}
+        <div className="animate-on-scroll mb-16">
+          <div className="grid md:grid-cols-2 lg:grid-cols-4 gap-6">
+            {contactInfo.map((info, index) => (
+              <div
+                key={index}
+                className="group relative p-8 bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-3xl hover:border-red-500/50 transition-all duration-500 hover:-translate-y-2"
+              >
+                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                <div className="relative z-10 text-center">
                   <div
-                    key={index}
-                    className={`p-6 bg-gray-900/50 backdrop-blur-sm border ${info.border} rounded-2xl hover:bg-gray-900/70 transition-all group`}
+                    className={`w-16 h-16 bg-gradient-to-br ${info.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-red-500/20`}
                   >
-                    <div className="flex items-start space-x-4">
-                      <div
-                        className={`w-14 h-14 ${info.bg} backdrop-blur-sm border border-gray-600/30 rounded-xl flex items-center justify-center flex-shrink-0 group-hover:scale-110 transition-transform`}
-                      >
-                        <info.icon className={`w-6 h-6 ${info.color}`} />
-                      </div>
-                      <div className="flex-1">
-                        <h4 className="font-semibold text-white mb-3 group-hover:text-orange-400 transition-colors">
-                          {info.title}
-                        </h4>
-                        {info.details.map((detail, detailIndex) => (
-                          <p
-                            key={detailIndex}
-                            className="text-gray-300 text-sm mb-1"
-                          >
-                            {info.link && detailIndex === 0 ? (
-                              <a
-                                href={info.link}
-                                className="hover:text-orange-400 transition-colors font-medium"
-                              >
-                                {detail}
-                              </a>
-                            ) : (
-                              detail
-                            )}
-                          </p>
-                        ))}
-                      </div>
-                    </div>
+                    <info.icon className="w-8 h-8 text-white" />
                   </div>
-                ))}
-              </div>
-            </div>
-
-            {/* Certifications */}
-            <div className="animate-on-scroll bg-gray-900/50 backdrop-blur-sm border border-gray-700/50 rounded-2xl p-8">
-              <h4 className="font-bold text-white mb-6 flex items-center">
-                <Shield className="w-5 h-5 text-green-400 mr-3" />
-                Our Certifications
-              </h4>
-              <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-4 bg-gray-800/30 rounded-xl border border-gray-600/30">
-                  <div className="w-16 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white text-xs font-bold">SBA</span>
-                  </div>
-                  <p className="text-xs text-gray-300 font-medium mb-1">
-                    Veteran-Owned
-                  </p>
-                  <p className="text-xs text-gray-400">Small Business</p>
-                </div>
-                <div className="text-center p-4 bg-gray-800/30 rounded-xl border border-gray-600/30">
-                  <div className="w-16 h-12 bg-blue-600 rounded-lg flex items-center justify-center mx-auto mb-3">
-                    <span className="text-white text-xs font-bold">SBA</span>
-                  </div>
-                  <p className="text-xs text-gray-300 font-medium mb-1">
-                    Service-Disabled
-                  </p>
-                  <p className="text-xs text-gray-400">Veteran-Owned</p>
+                  <h3 className="text-xl font-bold text-white mb-2 group-hover:text-red-300 transition-colors">
+                    {info.title}
+                  </h3>
+                  {info.link ? (
+                    <a
+                      href={info.link}
+                      target={info.link.startsWith("http") ? "_blank" : "_self"}
+                      rel={
+                        info.link.startsWith("http")
+                          ? "noopener noreferrer"
+                          : ""
+                      }
+                      className="block text-red-400 font-semibold mb-2 hover:text-red-300 transition-colors"
+                    >
+                      {info.value}
+                    </a>
+                  ) : (
+                    <p className="text-red-400 font-semibold mb-2">
+                      {info.value}
+                    </p>
+                  )}
+                  <p className="text-gray-400 text-sm">{info.subtitle}</p>
                 </div>
               </div>
-              <div className="mt-4 text-center">
-                <Badge className="bg-green-600/20 text-green-400 border border-green-600/30">
-                  ISO 27001 Certified
-                </Badge>
-              </div>
-            </div>
+            ))}
           </div>
+        </div>
 
-          {/* Contact Form */}
-          <div className="lg:col-span-3">
-            <Card className="animate-on-scroll bg-gray-900/50 backdrop-blur-sm border-gray-700/50 hover:border-orange-500/30 transition-all">
-              <CardContent className="p-8">
+        {/* Main Content Grid */}
+        <div className="grid lg:grid-cols-3 gap-12 mb-16">
+          {/* Contact Form - Takes 2 columns */}
+          <div className="lg:col-span-2">
+            <Card className="animate-on-scroll bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 hover:border-red-500/30 transition-all duration-500 rounded-3xl overflow-hidden">
+              <CardContent className="p-10">
                 {isSubmitted ? (
-                  <div className="text-center py-16">
-                    <div className="w-20 h-20 bg-green-600/20 backdrop-blur-sm border border-green-600/30 rounded-2xl flex items-center justify-center mx-auto mb-6">
-                      <CheckCircle className="w-10 h-10 text-green-400" />
+                  <div className="text-center py-20">
+                    <div className="w-24 h-24 bg-gradient-to-br from-red-500/20 to-red-600/20 backdrop-blur-xl border border-red-500/30 rounded-3xl flex items-center justify-center mx-auto mb-8">
+                      <CheckCircle className="w-12 h-12 text-red-400" />
                     </div>
-                    <h3 className="text-3xl font-bold text-white mb-4">
+                    <h3 className="text-4xl font-bold text-white mb-6">
                       Message Sent Successfully!
                     </h3>
-                    <p className="text-gray-300 mb-6">
-                      Thank you for contacting Elite Veteran Solutions.
-                      We&apos;ll get back to you within 2-4 hours.
+                    <p className="text-xl text-gray-300 mb-8">
+                      Thank you for reaching out. We'll get back to you within
+                      2-4 hours.
                     </p>
-                    <div className="flex items-center justify-center space-x-2 text-sm text-gray-400">
-                      <Clock className="w-4 h-4" />
-                      <span>Expected response time: 2-4 hours</span>
+                    <div className="flex items-center justify-center space-x-3 text-gray-400">
+                      <Clock className="w-5 h-5" />
+                      <span>Expected response: 2-4 hours</span>
                     </div>
                   </div>
                 ) : (
                   <>
-                    <div className="flex items-center justify-between mb-8">
-                      <h3 className="text-2xl font-bold text-white">
+                    <div className="text-center mb-10">
+                      <h3 className="text-3xl font-bold text-white mb-4">
                         Send Us a Message
                       </h3>
-                      <Badge className="bg-orange-600/20 text-orange-400 border border-orange-600/30">
-                        Free Consultation
-                      </Badge>
+                      <p className="text-gray-400">
+                        Ready to get started? Fill out the form below and we'll
+                        be in touch.
+                      </p>
                     </div>
 
-                    <form
-                      ref={formRef}
-                      onSubmit={handleSubmit}
-                      className="space-y-6"
-                    >
+                    <form onSubmit={handleSubmit} className="space-y-8">
                       <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <div className="space-y-2">
+                          <label className="text-sm font-semibold text-gray-300">
                             First Name *
                           </label>
                           <Input
                             name="firstName"
-                            type="text"
-                            required
                             value={formData.firstName}
                             onChange={handleInputChange}
-                            className={`form-input ${
+                            className={`h-14 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:bg-black/70 ${
                               errors.firstName
-                                ? "border-red-500 focus:border-red-500"
-                                : ""
+                                ? "border-red-500"
+                                : "border-red-900/50 focus:border-red-500"
                             }`}
-                            placeholder="Enter your first name"
+                            placeholder="John"
                           />
                           {errors.firstName && (
-                            <p className="text-red-400 text-xs mt-1">
+                            <p className="text-red-400 text-sm">
                               {errors.firstName}
                             </p>
                           )}
                         </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <div className="space-y-2">
+                          <label className="text-sm font-semibold text-gray-300">
                             Last Name *
                           </label>
                           <Input
                             name="lastName"
-                            type="text"
-                            required
                             value={formData.lastName}
                             onChange={handleInputChange}
-                            className={`form-input ${
+                            className={`h-14 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:bg-black/70 ${
                               errors.lastName
-                                ? "border-red-500 focus:border-red-500"
-                                : ""
+                                ? "border-red-500"
+                                : "border-red-900/50 focus:border-red-500"
                             }`}
-                            placeholder="Enter your last name"
+                            placeholder="Doe"
                           />
                           {errors.lastName && (
-                            <p className="text-red-400 text-xs mt-1">
+                            <p className="text-red-400 text-sm">
                               {errors.lastName}
                             </p>
                           )}
@@ -392,31 +340,30 @@ const ContactSection = () => {
                       </div>
 
                       <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <div className="space-y-2">
+                          <label className="text-sm font-semibold text-gray-300">
                             Email Address *
                           </label>
                           <Input
                             name="email"
                             type="email"
-                            required
                             value={formData.email}
                             onChange={handleInputChange}
-                            className={`form-input ${
+                            className={`h-14 bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:bg-black/70 ${
                               errors.email
-                                ? "border-red-500 focus:border-red-500"
-                                : ""
+                                ? "border-red-500"
+                                : "border-red-900/50 focus:border-red-500"
                             }`}
-                            placeholder="Enter your email"
+                            placeholder="john@company.com"
                           />
                           {errors.email && (
-                            <p className="text-red-400 text-xs mt-1">
+                            <p className="text-red-400 text-sm">
                               {errors.email}
                             </p>
                           )}
                         </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <div className="space-y-2">
+                          <label className="text-sm font-semibold text-gray-300">
                             Phone Number
                           </label>
                           <Input
@@ -424,39 +371,42 @@ const ContactSection = () => {
                             type="tel"
                             value={formData.phone}
                             onChange={handleInputChange}
-                            className="form-input"
+                            className="h-14 bg-black/50 border-2 border-red-900/50 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:bg-black/70 focus:border-red-500"
                             placeholder="(555) 123-4567"
                           />
                         </div>
                       </div>
 
                       <div className="grid md:grid-cols-2 gap-6">
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <div className="space-y-2">
+                          <label className="text-sm font-semibold text-gray-300">
                             Company/Organization
                           </label>
                           <Input
                             name="company"
-                            type="text"
                             value={formData.company}
                             onChange={handleInputChange}
-                            className="form-input"
-                            placeholder="Your company name"
+                            className="h-14 bg-black/50 border-2 border-red-900/50 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:bg-black/70 focus:border-red-500"
+                            placeholder="Your Company Name"
                           />
                         </div>
-                        <div>
-                          <label className="block text-sm font-medium text-gray-300 mb-2">
+                        <div className="space-y-2">
+                          <label className="text-sm font-semibold text-gray-300">
                             Project Type
                           </label>
                           <select
                             name="projectType"
                             value={formData.projectType}
                             onChange={handleInputChange}
-                            className="form-input"
+                            className="h-14 bg-black/50 border-2 border-red-900/50 rounded-xl text-white transition-all duration-300 focus:bg-black/70 focus:border-red-500 px-4"
                           >
                             <option value="">Select a service</option>
                             {projectTypes.map((type, index) => (
-                              <option key={index} value={type}>
+                              <option
+                                key={index}
+                                value={type}
+                                className="bg-black"
+                              >
                                 {type}
                               </option>
                             ))}
@@ -464,64 +414,56 @@ const ContactSection = () => {
                         </div>
                       </div>
 
-                      <div>
-                        <label className="block text-sm font-medium text-gray-300 mb-2">
+                      <div className="space-y-2">
+                        <label className="text-sm font-semibold text-gray-300">
                           Message *
                         </label>
                         <Textarea
                           name="message"
-                          required
-                          rows={6}
                           value={formData.message}
                           onChange={handleInputChange}
-                          className={`form-textarea ${
+                          rows={6}
+                          className={`bg-black/50 border-2 rounded-xl text-white placeholder-gray-500 transition-all duration-300 focus:bg-black/70 resize-none ${
                             errors.message
-                              ? "border-red-500 focus:border-red-500"
-                              : ""
+                              ? "border-red-500"
+                              : "border-red-900/50 focus:border-red-500"
                           }`}
                           placeholder="Tell us about your project, timeline, and specific requirements..."
                         />
                         {errors.message && (
-                          <p className="text-red-400 text-xs mt-1">
+                          <p className="text-red-400 text-sm">
                             {errors.message}
                           </p>
                         )}
                       </div>
 
-                      <div className="flex flex-col sm:flex-row gap-4">
+                      <div className="flex flex-col sm:flex-row gap-4 pt-4">
                         <Button
                           type="submit"
                           disabled={isSubmitting}
-                          className="flex-1 bg-gradient-to-r from-orange-600 to-orange-700 hover:from-orange-700 hover:to-orange-800 text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed group"
+                          className="flex-1 h-14 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 group shadow-lg shadow-red-500/25"
                         >
                           {isSubmitting ? (
                             <>
-                              <div className="loading-spinner mr-2"></div>
+                              <div className="animate-spin rounded-full h-6 w-6 border-b-2 border-white mr-3"></div>
                               Sending Message...
                             </>
                           ) : (
                             <>
                               Send Message
-                              <Send className="ml-2 h-5 w-5 group-hover:translate-x-1 transition-transform" />
+                              <Send className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
                             </>
                           )}
                         </Button>
                         <Button
                           type="button"
                           variant="outline"
-                          className="px-8 py-4 border-gray-600 text-gray-300 hover:bg-gray-800 hover:text-white"
+                          className="h-14 px-8 border-2 border-red-600 text-red-400 hover:bg-red-600 hover:text-white rounded-xl transition-all duration-300"
                           onClick={() => window.open("tel:888-747-9909")}
                         >
-                          <Phone className="w-4 h-4 mr-2" />
+                          <Phone className="w-5 h-5 mr-2" />
                           Call Now
                         </Button>
-                      </div>
-
-                      <div className="text-center pt-4 border-t border-gray-700">
-                        <p className="text-sm text-gray-400">
-                          By submitting this form, you agree to our privacy
-                          policy and terms of service.
-                        </p>
                       </div>
                     </form>
                   </>
@@ -529,29 +471,154 @@ const ContactSection = () => {
               </CardContent>
             </Card>
           </div>
+
+          {/* Sidebar - Takes 1 column */}
+          <div className="space-y-8">
+            {/* Certifications Card */}
+            <Card className="animate-on-scroll bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
+              <CardContent className="p-8">
+                <div className="text-center mb-8">
+                  <div className="w-16 h-16 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                    <Shield className="w-8 h-8 text-red-400" />
+                  </div>
+                  <h3 className="text-2xl font-bold text-white mb-2">
+                    Our Certifications
+                  </h3>
+                  <p className="text-gray-400">Trusted by federal agencies</p>
+                </div>
+
+                <div className="space-y-4">
+                  <div className="flex items-center justify-between p-4 bg-gradient-to-r from-red-900/20 to-red-800/20 rounded-2xl border border-red-800/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">
+                          SBA
+                        </span>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold text-sm">VOSB</p>
+                        <p className="text-gray-400 text-xs">Veteran-Owned</p>
+                      </div>
+                    </div>
+                    <Badge className="bg-green-500/20 text-green-400 border border-green-500/30">
+                      Active
+                    </Badge>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 bg-gradient-to-r from-red-900/20 to-red-800/20 rounded-2xl border border-red-800/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-8 bg-red-600 rounded-lg flex items-center justify-center">
+                        <span className="text-white text-xs font-bold">
+                          SBA
+                        </span>
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold text-sm">
+                          SDVOSB
+                        </p>
+                        <p className="text-gray-400 text-xs">
+                          Service-Disabled
+                        </p>
+                      </div>
+                    </div>
+                    <Badge className="bg-green-500/20 text-green-400 border border-green-500/30">
+                      Active
+                    </Badge>
+                  </div>
+
+                  <div className="flex items-center justify-between p-4 bg-gradient-to-r from-red-900/20 to-red-800/20 rounded-2xl border border-red-800/30">
+                    <div className="flex items-center space-x-3">
+                      <div className="w-12 h-8 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+                        <Award className="w-5 h-5 text-white" />
+                      </div>
+                      <div>
+                        <p className="text-white font-semibold text-sm">
+                          ISO 27001
+                        </p>
+                        <p className="text-gray-400 text-xs">
+                          Security Standard
+                        </p>
+                      </div>
+                    </div>
+                    <Badge className="bg-green-500/20 text-green-400 border border-green-500/30">
+                      Certified
+                    </Badge>
+                  </div>
+                </div>
+              </CardContent>
+            </Card>
+
+            {/* Why Choose Us Card */}
+            <Card className="animate-on-scroll bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
+              <CardContent className="p-8">
+                <h3 className="text-2xl font-bold text-white mb-6 text-center">
+                  Why Choose <span className="gradient-text">Us</span>?
+                </h3>
+                <div className="space-y-4">
+                  {[
+                    { icon: Shield, text: "Military-grade security" },
+                    { icon: Award, text: "15+ years experience" },
+                    { icon: Users, text: "98% client satisfaction" },
+                    { icon: Globe, text: "Nationwide coverage" },
+                  ].map((item, index) => (
+                    <div
+                      key={index}
+                      className="flex items-center space-x-3 p-3 rounded-xl hover:bg-red-900/20 transition-colors"
+                    >
+                      <div className="w-10 h-10 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-lg flex items-center justify-center">
+                        <item.icon className="w-5 h-5 text-red-400" />
+                      </div>
+                      <span className="text-gray-300">{item.text}</span>
+                    </div>
+                  ))}
+                </div>
+              </CardContent>
+            </Card>
+          </div>
         </div>
 
-        {/* Map Section */}
-        <div className="animate-on-scroll mt-20">
-          <Card className="bg-gray-900/50 backdrop-blur-sm border-gray-700/50 overflow-hidden">
+        {/* Interactive Map Section */}
+        <div className="animate-on-scroll">
+          <Card className="bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
             <CardContent className="p-0">
-              <div className="h-96 bg-gradient-to-br from-gray-800 to-gray-900 flex items-center justify-center relative overflow-hidden">
-                <div className="text-center z-10">
-                  <div className="w-16 h-16 bg-orange-600/20 backdrop-blur-sm border border-orange-500/30 rounded-2xl flex items-center justify-center mx-auto mb-4">
-                    <MapPin className="w-8 h-8 text-orange-400" />
+              <div className="relative h-96">
+                {/* Embedded Google Map */}
+                <iframe
+                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3462.8967423453887!2d-98.53650892397!3d29.60184457550547!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x865c8b0b0b0b0b0b%3A0x0!2s4950%20Woodstone%20Dr%2C%20San%20Antonio%2C%20TX%2078230!5e0!3m2!1sen!2sus!4v1640000000000!5m2!1sen!2sus"
+                  width="100%"
+                  height="100%"
+                  style={{
+                    border: 0,
+                    filter: "invert(90%) hue-rotate(180deg)",
+                  }}
+                  allowFullScreen
+                  loading="lazy"
+                  referrerPolicy="no-referrer-when-downgrade"
+                  className="rounded-3xl"
+                ></iframe>
+
+                {/* Overlay Info Card */}
+                <div className="absolute top-8 left-8 bg-gradient-to-br from-black/90 to-red-950/30 backdrop-blur-xl border border-red-500/30 rounded-2xl p-6 max-w-sm">
+                  <div className="flex items-center space-x-3 mb-4">
+                    <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center">
+                      <MapPin className="w-6 h-6 text-white" />
+                    </div>
+                    <div>
+                      <h4 className="text-lg font-bold text-white">
+                        Our Location
+                      </h4>
+                      <p className="text-red-400 text-sm">San Antonio, Texas</p>
+                    </div>
                   </div>
-                  <h4 className="text-xl font-bold text-white mb-2">
-                    Our Location
-                  </h4>
-                  <p className="text-gray-300 font-medium">
-                    San Antonio, Texas
-                  </p>
-                  <p className="text-sm text-gray-400 mb-4">
-                    Serving clients nationwide
+                  <p className="text-gray-300 text-sm mb-4">
+                    4950 Woodstone DR APT 321
+                    <br />
+                    San Antonio, TX 78230-1199
                   </p>
                   <Button
                     variant="outline"
-                    className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white"
+                    size="sm"
+                    className="border-red-600 text-red-400 hover:bg-red-600 hover:text-white transition-all duration-300"
                     onClick={() =>
                       window.open(
                         "https://maps.google.com/?q=4950+Woodstone+DR+APT+321+San+Antonio+Texas+78230",
@@ -559,16 +626,9 @@ const ContactSection = () => {
                       )
                     }
                   >
-                    View on Google Maps
+                    View Directions
+                    <ExternalLink className="w-4 h-4 ml-2" />
                   </Button>
-                </div>
-
-                {/* Background pattern */}
-                <div className="absolute inset-0 opacity-10">
-                  <div className="absolute top-10 left-10 w-20 h-20 border border-orange-400 rounded-full"></div>
-                  <div className="absolute bottom-10 right-10 w-16 h-16 border border-blue-400 rounded-full"></div>
-                  <div className="absolute top-1/2 left-1/4 w-2 h-2 bg-orange-400 rounded-full animate-pulse"></div>
-                  <div className="absolute top-1/3 right-1/3 w-3 h-3 bg-blue-400 rounded-full animate-pulse"></div>
                 </div>
               </div>
             </CardContent>

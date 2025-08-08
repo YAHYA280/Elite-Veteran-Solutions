@@ -19,34 +19,64 @@ export default {
     },
     extend: {
       colors: {
-        // Enhanced color palette for dark theme
-        navy: {
-          50: "#f0f4ff",
-          100: "#e0eafe",
-          200: "#c7d6fe",
-          300: "#a5b8fc",
-          400: "#8090f8",
-          500: "#6366f1",
-          600: "#4f46e5",
-          700: "#4338ca",
-          800: "#3730a3",
-          900: "#312e81",
-          950: "#1e1b4b",
+        // Primary Color Scheme: Black to Red
+        primary: {
+          50: "#fef2f2",
+          100: "#fee2e2",
+          200: "#fecaca",
+          300: "#fca5a5",
+          400: "#f87171",
+          500: "#FF0000", // Bright Red
+          600: "#dc2626",
+          700: "#b91c1c",
+          800: "#950101", // Dark Red
+          900: "#7f1d1d",
+          950: "#3D0000", // Very Dark Red
         },
-        orange: {
-          50: "#fff7ed",
-          100: "#ffedd5",
-          200: "#fed7aa",
-          300: "#fdba74",
-          400: "#fb923c",
-          500: "#f97316",
-          600: "#ea580c",
-          700: "#c2410c",
-          800: "#9a3412",
-          900: "#7c2d12",
-          950: "#431407",
+        // Black variations
+        black: {
+          DEFAULT: "#000000", // Pure Black
+          50: "#f9fafb",
+          100: "#f3f4f6",
+          200: "#e5e7eb",
+          300: "#d1d5db",
+          400: "#9ca3af",
+          500: "#6b7280",
+          600: "#4b5563",
+          700: "#374151",
+          800: "#1f2937",
+          900: "#111827",
+          950: "#000000", // Pure Black
         },
-        // Dark theme specific colors
+        // Red color scheme based on your palette
+        red: {
+          50: "#fef2f2",
+          100: "#fee2e2",
+          200: "#fecaca",
+          300: "#fca5a5",
+          400: "#f87171",
+          500: "#FF0000", // Your bright red
+          600: "#dc2626",
+          700: "#b91c1c",
+          800: "#950101", // Your dark red
+          900: "#7f1d1d",
+          950: "#3D0000", // Your very dark red
+        },
+        // Custom palette based on your colors
+        crimson: {
+          50: "#fef2f2",
+          100: "#fee2e2",
+          200: "#fecaca",
+          300: "#fca5a5",
+          400: "#f87171",
+          500: "#FF0000", // #FF0000
+          600: "#dc2626",
+          700: "#b91c1c",
+          800: "#950101", // #950101
+          900: "#7f1d1d",
+          950: "#3D0000", // #3D0000
+        },
+        // Enhanced grays for dark theme
         gray: {
           50: "#f9fafb",
           100: "#f3f4f6",
@@ -57,9 +87,9 @@ export default {
           600: "#4b5563",
           700: "#374151",
           800: "#1f2937",
-          850: "#1a202c", // Custom intermediate shade
+          850: "#1a202c",
           900: "#111827",
-          950: "#0d1117", // Custom darker shade
+          950: "#000000", // Pure black
         },
         // Theme colors for shadcn/ui compatibility
         border: "hsl(var(--border))",
@@ -67,10 +97,6 @@ export default {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
-        primary: {
-          DEFAULT: "hsl(var(--primary))",
-          foreground: "hsl(var(--primary-foreground))",
-        },
         secondary: {
           DEFAULT: "hsl(var(--secondary))",
           foreground: "hsl(var(--secondary-foreground))",
@@ -105,7 +131,6 @@ export default {
         sans: ["var(--font-inter)", "Inter", "sans-serif"],
       },
       fontSize: {
-        // Enhanced typography scale
         xs: ["0.75rem", { lineHeight: "1rem" }],
         sm: ["0.875rem", { lineHeight: "1.25rem" }],
         base: ["1rem", { lineHeight: "1.5rem" }],
@@ -121,13 +146,11 @@ export default {
         "9xl": ["8rem", { lineHeight: "1" }],
       },
       spacing: {
-        // Additional spacing values
         18: "4.5rem",
         88: "22rem",
         128: "32rem",
       },
       maxWidth: {
-        // Custom max widths
         "8xl": "88rem",
         "9xl": "96rem",
       },
@@ -135,7 +158,6 @@ export default {
         xs: "2px",
       },
       keyframes: {
-        // Enhanced animations
         "fade-in": {
           "0%": { opacity: "0", transform: "translateY(20px)" },
           "100%": { opacity: "1", transform: "translateY(0)" },
@@ -169,8 +191,8 @@ export default {
           "50%": { opacity: "0.8" },
         },
         "pulse-glow": {
-          "0%, 100%": { boxShadow: "0 0 5px rgba(249, 115, 22, 0.3)" },
-          "50%": { boxShadow: "0 0 20px rgba(249, 115, 22, 0.6)" },
+          "0%, 100%": { boxShadow: "0 0 5px rgba(255, 0, 0, 0.3)" },
+          "50%": { boxShadow: "0 0 20px rgba(255, 0, 0, 0.6)" },
         },
         "gradient-x": {
           "0%, 100%": {
@@ -182,7 +204,6 @@ export default {
             "background-position": "right center",
           },
         },
-        // Loading animations
         spinner: {
           "0%": { transform: "rotate(0deg)" },
           "100%": { transform: "rotate(360deg)" },
@@ -191,20 +212,26 @@ export default {
           "0%, 100%": { transform: "translateY(0)" },
           "50%": { transform: "translateY(-10px)" },
         },
-        // Text animations
         "type-writer": {
           from: { width: "0" },
           to: { width: "100%" },
         },
-        // Button animations
         "button-press": {
           "0%": { transform: "scale(1)" },
           "50%": { transform: "scale(0.95)" },
           "100%": { transform: "scale(1)" },
         },
+        // Red-themed animations
+        "red-pulse": {
+          "0%, 100%": { boxShadow: "0 0 5px rgba(255, 0, 0, 0.3)" },
+          "50%": { boxShadow: "0 0 30px rgba(255, 0, 0, 0.8)" },
+        },
+        "red-glow": {
+          "0%, 100%": { textShadow: "0 0 5px rgba(255, 0, 0, 0.5)" },
+          "50%": { textShadow: "0 0 20px rgba(255, 0, 0, 1)" },
+        },
       },
       animation: {
-        // Enhanced animation utilities
         "fade-in": "fade-in 0.6s ease-out",
         "fade-in-up": "fade-in-up 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
         "fade-in-down": "fade-in-down 0.8s cubic-bezier(0.4, 0, 0.2, 1)",
@@ -219,57 +246,61 @@ export default {
         "bounce-slow": "bounce-slow 3s ease-in-out infinite",
         "type-writer": "type-writer 3.5s steps(40, end)",
         "button-press": "button-press 0.15s ease-in-out",
+        "red-pulse": "red-pulse 2s ease-in-out infinite",
+        "red-glow": "red-glow 2s ease-in-out infinite",
       },
       boxShadow: {
-        // Enhanced shadows for dark theme
-        "glow-sm": "0 0 10px rgba(249, 115, 22, 0.3)",
-        glow: "0 0 20px rgba(249, 115, 22, 0.4)",
-        "glow-lg": "0 0 30px rgba(249, 115, 22, 0.5)",
-        "glow-blue": "0 0 20px rgba(59, 130, 246, 0.4)",
-        "glow-green": "0 0 20px rgba(34, 197, 94, 0.4)",
-        "glow-purple": "0 0 20px rgba(168, 85, 247, 0.4)",
-        "inner-glow": "inset 0 0 10px rgba(249, 115, 22, 0.3)",
+        // Red-themed shadows
+        "glow-sm": "0 0 10px rgba(255, 0, 0, 0.3)",
+        glow: "0 0 20px rgba(255, 0, 0, 0.4)",
+        "glow-lg": "0 0 30px rgba(255, 0, 0, 0.5)",
+        "glow-red": "0 0 20px rgba(255, 0, 0, 0.4)",
+        "glow-crimson": "0 0 20px rgba(149, 1, 1, 0.4)",
+        "glow-dark-red": "0 0 20px rgba(61, 0, 0, 0.4)",
+        "inner-glow": "inset 0 0 10px rgba(255, 0, 0, 0.3)",
         // Dark theme shadows
-        "dark-sm": "0 1px 2px rgba(0, 0, 0, 0.3)",
-        dark: "0 1px 3px rgba(0, 0, 0, 0.4), 0 1px 2px rgba(0, 0, 0, 0.3)",
-        "dark-md": "0 4px 6px rgba(0, 0, 0, 0.4), 0 2px 4px rgba(0, 0, 0, 0.3)",
+        "dark-sm": "0 1px 2px rgba(0, 0, 0, 0.8)",
+        dark: "0 1px 3px rgba(0, 0, 0, 0.9), 0 1px 2px rgba(0, 0, 0, 0.8)",
+        "dark-md": "0 4px 6px rgba(0, 0, 0, 0.9), 0 2px 4px rgba(0, 0, 0, 0.8)",
         "dark-lg":
-          "0 10px 15px rgba(0, 0, 0, 0.4), 0 4px 6px rgba(0, 0, 0, 0.3)",
+          "0 10px 15px rgba(0, 0, 0, 0.9), 0 4px 6px rgba(0, 0, 0, 0.8)",
         "dark-xl":
-          "0 20px 25px rgba(0, 0, 0, 0.4), 0 10px 10px rgba(0, 0, 0, 0.2)",
-        "dark-2xl": "0 25px 50px rgba(0, 0, 0, 0.5)",
+          "0 20px 25px rgba(0, 0, 0, 0.9), 0 10px 10px rgba(0, 0, 0, 0.6)",
+        "dark-2xl": "0 25px 50px rgba(0, 0, 0, 0.95)",
       },
       backgroundImage: {
-        // Custom gradient backgrounds
         "gradient-radial": "radial-gradient(var(--tw-gradient-stops))",
         "gradient-conic":
           "conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))",
-        "gradient-orange": "linear-gradient(135deg, #f97316, #ea580c)",
-        "gradient-blue": "linear-gradient(135deg, #3b82f6, #1d4ed8)",
-        "gradient-purple": "linear-gradient(135deg, #8b5cf6, #7c3aed)",
-        "gradient-dark": "linear-gradient(135deg, #111827, #1f2937, #374151)",
+        // Red-themed gradients
+        "gradient-red": "linear-gradient(135deg, #FF0000, #950101)",
+        "gradient-crimson": "linear-gradient(135deg, #950101, #3D0000)",
+        "gradient-dark-red": "linear-gradient(135deg, #3D0000, #000000)",
+        "gradient-fire": "linear-gradient(135deg, #FF0000, #950101, #3D0000)",
+        "gradient-dark": "linear-gradient(135deg, #000000, #3D0000, #950101)",
         "hero-pattern":
-          "linear-gradient(135deg, #111827 0%, #1f2937 50%, #374151 100%)",
+          "linear-gradient(135deg, #000000 0%, #3D0000 50%, #950101 100%)",
+        // Pattern backgrounds
+        "red-dots":
+          "radial-gradient(circle, rgba(255, 0, 0, 0.1) 1px, transparent 1px)",
+        "dark-pattern":
+          "linear-gradient(135deg, #000000 25%, transparent 25%), linear-gradient(225deg, #000000 25%, transparent 25%), linear-gradient(45deg, #000000 25%, transparent 25%), linear-gradient(315deg, #000000 25%, #3D0000 25%)",
       },
       screens: {
-        // Additional breakpoints
         xs: "475px",
         "3xl": "1600px",
       },
       aspectRatio: {
-        // Additional aspect ratios
         "4/3": "4 / 3",
         "3/2": "3 / 2",
         "2/3": "2 / 3",
         "9/16": "9 / 16",
       },
       transitionTimingFunction: {
-        // Custom easing functions
         "bounce-in": "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
         elastic: "cubic-bezier(0.68, -0.55, 0.265, 1.55)",
       },
       zIndex: {
-        // Additional z-index values
         60: "60",
         70: "70",
         80: "80",
@@ -280,29 +311,39 @@ export default {
   },
   plugins: [
     tailwindcssAnimate,
-    // Add custom utilities
     function ({ addUtilities, theme }) {
       const newUtilities = {
-        // Glass morphism utilities
+        // Glass morphism utilities with red theme
         ".glass": {
-          background: "rgba(17, 24, 39, 0.8)",
+          background: "rgba(0, 0, 0, 0.8)",
           backdropFilter: "blur(16px)",
-          border: "1px solid rgba(75, 85, 99, 0.3)",
+          border: "1px solid rgba(61, 0, 0, 0.3)",
         },
         ".glass-light": {
-          background: "rgba(31, 41, 55, 0.6)",
+          background: "rgba(61, 0, 0, 0.6)",
           backdropFilter: "blur(12px)",
-          border: "1px solid rgba(107, 114, 128, 0.2)",
+          border: "1px solid rgba(149, 1, 1, 0.2)",
         },
-        // Text gradient utilities
+        ".glass-red": {
+          background: "rgba(61, 0, 0, 0.4)",
+          backdropFilter: "blur(12px)",
+          border: "1px solid rgba(255, 0, 0, 0.2)",
+        },
+        // Text gradient utilities with red theme
         ".text-gradient": {
-          background: "linear-gradient(135deg, #f97316, #ea580c)",
+          background: "linear-gradient(135deg, #FF0000, #950101)",
           "-webkit-background-clip": "text",
           "-webkit-text-fill-color": "transparent",
           "background-clip": "text",
         },
-        ".text-gradient-blue": {
-          background: "linear-gradient(135deg, #3b82f6, #1d4ed8)",
+        ".text-gradient-fire": {
+          background: "linear-gradient(135deg, #FF0000, #950101, #3D0000)",
+          "-webkit-background-clip": "text",
+          "-webkit-text-fill-color": "transparent",
+          "background-clip": "text",
+        },
+        ".text-gradient-dark": {
+          background: "linear-gradient(135deg, #950101, #3D0000)",
           "-webkit-background-clip": "text",
           "-webkit-text-fill-color": "transparent",
           "background-clip": "text",
@@ -317,6 +358,20 @@ export default {
           "&::-webkit-scrollbar": {
             display: "none",
           },
+        },
+        // Red-themed utilities
+        ".bg-dark-pattern": {
+          backgroundColor: "#000000",
+          backgroundImage:
+            "radial-gradient(circle at 25% 25%, rgba(61, 0, 0, 0.2) 0%, transparent 50%), radial-gradient(circle at 75% 75%, rgba(149, 1, 1, 0.1) 0%, transparent 50%)",
+        },
+        ".border-red-glow": {
+          border: "1px solid rgba(255, 0, 0, 0.3)",
+          boxShadow: "0 0 10px rgba(255, 0, 0, 0.1)",
+        },
+        ".border-red-glow:hover": {
+          border: "1px solid rgba(255, 0, 0, 0.5)",
+          boxShadow: "0 0 20px rgba(255, 0, 0, 0.2)",
         },
         // Animation delay utilities
         ".animation-delay-100": { "animation-delay": "100ms" },

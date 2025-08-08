@@ -2,7 +2,15 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, ArrowUp, Globe, Shield } from "lucide-react";
+import {
+  Phone,
+  Mail,
+  MapPin,
+  ArrowUp,
+  Globe,
+  Shield,
+  ExternalLink,
+} from "lucide-react";
 import Image from "next/image";
 
 const Footer = () => {
@@ -65,247 +73,329 @@ const Footer = () => {
         </svg>
       ),
     },
+    {
+      name: "YouTube",
+      href: "https://youtube.com/@elitevetsolutions",
+      icon: (
+        <svg className="w-5 h-5" fill="currentColor" viewBox="0 0 24 24">
+          <path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z" />
+        </svg>
+      ),
+    },
+  ];
+
+  const certifications = [
+    {
+      title: "VOSB",
+      subtitle: "Veteran-Owned Small Business",
+      description: "SBA Certified",
+    },
+    {
+      title: "SDVOSB",
+      subtitle: "Service-Disabled Veteran-Owned",
+      description: "SBA Certified",
+    },
+    {
+      title: "ISO 27001",
+      subtitle: "Information Security",
+      description: "International Standard",
+    },
   ];
 
   return (
-    <footer className="bg-slate-900 text-white relative overflow-hidden">
-      {/* Background Pattern */}
-      <div className="absolute inset-0 opacity-5">
-        <div className="absolute top-20 left-20 w-32 h-32 border border-orange-400 rounded-full"></div>
-        <div className="absolute bottom-20 right-20 w-24 h-24 border border-orange-400 rounded-full"></div>
-        <div className="absolute top-1/2 left-1/3 w-2 h-2 bg-orange-400 rounded-full"></div>
-        <div className="absolute top-1/4 right-1/4 w-3 h-3 bg-orange-400 rounded-full"></div>
+    <footer className="bg-black relative overflow-hidden">
+      {/* Elegant Background Pattern */}
+      <div className="absolute inset-0">
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black via-red-950/10 to-black"></div>
+        <div className="absolute top-20 right-20 w-96 h-96 bg-red-500/5 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-64 h-64 bg-red-600/5 rounded-full blur-3xl"></div>
       </div>
 
-      {/* Main Footer Content */}
-      <div className="container-custom py-16 relative z-10">
-        <div className="grid lg:grid-cols-4 gap-12">
-          {/* Company Info */}
-          <div className="lg:col-span-1">
-            {/* Logo */}
-            <div className="mb-6">
-              <Image
-                src="/Logo_white.png"
-                alt="Elite Veteran Solutions Logo"
-                width={160}
-                height={64}
-                className="h-16 w-auto rounded-lg"
-              />
-            </div>
-
-            <div className="mb-6">
-              <h3 className="text-orange-400 font-bold text-sm mb-2">
-                SERVICE BEYOND EXPECTATIONS
-              </h3>
-              <p className="text-slate-300 text-sm leading-relaxed">
-                Elite Veteran Solutions combines proven military precision and
-                innovative thinking to deliver unparalleled results in the
-                federal marketplace.
-              </p>
-            </div>
-
-            {/* Certifications Badges */}
-            <div className="mb-6">
-              <div className="flex flex-wrap gap-2">
-                <div className="flex items-center space-x-2 bg-blue-600/20 border border-blue-600/30 rounded-lg px-3 py-2">
-                  <Shield className="w-4 h-4 text-blue-400" />
-                  <span className="text-xs font-medium text-blue-300">
-                    VOSB
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2 bg-blue-600/20 border border-blue-600/30 rounded-lg px-3 py-2">
-                  <Shield className="w-4 h-4 text-blue-400" />
-                  <span className="text-xs font-medium text-blue-300">
-                    SDVOSB
-                  </span>
-                </div>
-                <div className="flex items-center space-x-2 bg-green-600/20 border border-green-600/30 rounded-lg px-3 py-2">
-                  <Globe className="w-4 h-4 text-green-400" />
-                  <span className="text-xs font-medium text-green-300">
-                    ISO 27001
-                  </span>
-                </div>
+      <div className="relative z-10">
+        {/* Main Footer Content */}
+        <div className="container-custom py-20">
+          <div className="grid lg:grid-cols-4 gap-12">
+            {/* Company Info */}
+            <div className="lg:col-span-1 space-y-8">
+              {/* Logo */}
+              <div
+                className="group cursor-pointer"
+                onClick={() => scrollToSection("#home")}
+              >
+                <Image
+                  src="/Logo_white.png"
+                  alt="Elite Veteran Solutions Logo"
+                  width={180}
+                  height={72}
+                  className="h-16 w-auto group-hover:scale-105 transition-transform duration-300 filter brightness-110"
+                />
               </div>
-            </div>
 
-            {/* Social Media */}
-            <div className="flex space-x-3">
-              {socialLinks.map((social, index) => (
+              <div>
+                <h3 className="text-red-400 font-bold text-lg mb-3 tracking-wide">
+                  SERVICE BEYOND EXPECTATIONS
+                </h3>
+                <p className="text-gray-300 leading-relaxed mb-6">
+                  Elite Veteran Solutions combines proven military precision and
+                  innovative thinking to deliver unparalleled results in the
+                  federal marketplace.
+                </p>
+              </div>
+
+              {/* Contact Info */}
+              <div className="space-y-4">
                 <a
-                  key={index}
-                  href={social.href}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="w-10 h-10 bg-slate-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-all duration-300 group border border-slate-700 hover:border-orange-500"
-                  aria-label={social.name}
+                  href="tel:888-747-9909"
+                  className="flex items-center group text-gray-300 hover:text-red-400 transition-colors duration-300"
                 >
-                  <div className="text-slate-300 group-hover:text-white transition-colors">
-                    {social.icon}
-                  </div>
-                </a>
-              ))}
-            </div>
-          </div>
-
-          {/* Quick Links */}
-          <div className="grid md:grid-cols-3 gap-8 lg:col-span-3">
-            {/* Company */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6 text-orange-400 flex items-center">
-                <div className="w-1 h-6 bg-orange-500 rounded-full mr-3"></div>
-                Company
-              </h4>
-              <ul className="space-y-3">
-                {footerLinks.company.map((link, index) => (
-                  <li key={index}>
-                    <button
-                      onClick={() => scrollToSection(link.href)}
-                      className="text-slate-300 hover:text-orange-400 transition-colors text-sm flex items-center group"
-                    >
-                      <span className="group-hover:translate-x-1 transition-transform">
-                        {link.label}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Services */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6 text-orange-400 flex items-center">
-                <div className="w-1 h-6 bg-orange-500 rounded-full mr-3"></div>
-                Services
-              </h4>
-              <ul className="space-y-3">
-                {footerLinks.services.map((link, index) => (
-                  <li key={index}>
-                    <button
-                      onClick={() => scrollToSection(link.href)}
-                      className="text-slate-300 hover:text-orange-400 transition-colors text-sm flex items-center group"
-                    >
-                      <span className="group-hover:translate-x-1 transition-transform">
-                        {link.label}
-                      </span>
-                    </button>
-                  </li>
-                ))}
-              </ul>
-            </div>
-
-            {/* Contact Info */}
-            <div>
-              <h4 className="text-lg font-semibold mb-6 text-orange-400 flex items-center">
-                <div className="w-1 h-6 bg-orange-500 rounded-full mr-3"></div>
-                Get In Touch
-              </h4>
-              <ul className="space-y-4">
-                <li>
-                  <a
-                    href="tel:888-747-9909"
-                    className="flex items-start space-x-3 text-slate-300 hover:text-orange-400 transition-colors group"
-                  >
-                    <div className="w-8 h-8 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-600 group-hover:border-orange-500 transition-all">
-                      <Phone className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="font-medium">888-747-9909</p>
-                      <p className="text-xs text-slate-400">
-                        24/7 Emergency Support
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <li>
-                  <a
-                    href="mailto:info@elitevetsolutions.com"
-                    className="flex items-start space-x-3 text-slate-300 hover:text-orange-400 transition-colors group"
-                  >
-                    <div className="w-8 h-8 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center flex-shrink-0 group-hover:bg-orange-600 group-hover:border-orange-500 transition-all">
-                      <Mail className="w-4 h-4" />
-                    </div>
-                    <div>
-                      <p className="font-medium">info@elitevetsolutions.com</p>
-                      <p className="text-xs text-slate-400">
-                        Response within 2-4 hours
-                      </p>
-                    </div>
-                  </a>
-                </li>
-                <li className="flex items-start space-x-3 text-slate-300">
-                  <div className="w-8 h-8 bg-slate-800 border border-slate-700 rounded-lg flex items-center justify-center flex-shrink-0">
-                    <MapPin className="w-4 h-4 text-orange-400" />
+                  <div className="w-10 h-10 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <Phone className="w-5 h-5 text-red-400" />
                   </div>
                   <div>
-                    <p className="font-medium">San Antonio, Texas</p>
-                    <p className="text-xs text-slate-400">
+                    <p className="font-semibold">888-747-9909</p>
+                    <p className="text-xs text-gray-500">
+                      24/7 Emergency Support
+                    </p>
+                  </div>
+                </a>
+
+                <a
+                  href="mailto:info@elitevetsolutions.com"
+                  className="flex items-center group text-gray-300 hover:text-red-400 transition-colors duration-300"
+                >
+                  <div className="w-10 h-10 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-xl flex items-center justify-center mr-3 group-hover:scale-110 transition-transform duration-300">
+                    <Mail className="w-5 h-5 text-red-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">info@elitevetsolutions.com</p>
+                    <p className="text-xs text-gray-500">
+                      Response within 2-4 hours
+                    </p>
+                  </div>
+                </a>
+
+                <div className="flex items-center text-gray-300">
+                  <div className="w-10 h-10 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-xl flex items-center justify-center mr-3">
+                    <MapPin className="w-5 h-5 text-red-400" />
+                  </div>
+                  <div>
+                    <p className="font-semibold">San Antonio, Texas</p>
+                    <p className="text-xs text-gray-500">
                       Serving clients nationwide
                     </p>
                   </div>
-                </li>
-              </ul>
-            </div>
-          </div>
-        </div>
-      </div>
-
-      {/* Bottom Section */}
-      <div className="border-t border-slate-800">
-        <div className="container-custom py-8">
-          <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
-            {/* SBA Certifications Display */}
-            <div className="flex items-center space-x-6">
-              <div className="flex items-center space-x-3">
-                <div className="w-16 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">SBA</span>
-                </div>
-                <div className="text-xs">
-                  <p className="text-white font-medium">VETERAN-OWNED</p>
-                  <p className="text-slate-400">SMALL BUSINESS</p>
                 </div>
               </div>
-              <div className="flex items-center space-x-3">
-                <div className="w-16 h-12 bg-blue-600 rounded-lg flex items-center justify-center">
-                  <span className="text-white text-xs font-bold">SBA</span>
-                </div>
-                <div className="text-xs">
-                  <p className="text-white font-medium">SERVICE-DISABLED</p>
-                  <p className="text-slate-400">VETERAN-OWNED</p>
-                </div>
+
+              {/* Social Media */}
+              <div className="flex space-x-4">
+                {socialLinks.map((social, index) => (
+                  <a
+                    key={index}
+                    href={social.href}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="w-12 h-12 bg-gradient-to-br from-red-900/30 to-red-800/20 border border-red-800/30 hover:bg-gradient-to-br hover:from-red-600 hover:to-red-700 rounded-xl flex items-center justify-center transition-all duration-300 group hover:scale-110 hover:border-red-500/50"
+                    aria-label={social.name}
+                  >
+                    <div className="text-red-400 group-hover:text-white transition-colors duration-300">
+                      {social.icon}
+                    </div>
+                  </a>
+                ))}
               </div>
             </div>
 
-            {/* Scroll to Top Button */}
-            <Button
-              onClick={scrollToTop}
-              variant="outline"
-              size="icon"
-              className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300 hover:scale-105"
-            >
-              <ArrowUp className="h-4 w-4" />
-            </Button>
+            {/* Quick Links */}
+            <div className="grid md:grid-cols-3 gap-8 lg:col-span-3">
+              {/* Company */}
+              <div>
+                <h4 className="text-xl font-bold mb-8 text-white flex items-center">
+                  <div className="w-1 h-8 bg-gradient-to-b from-red-500 to-red-600 rounded-full mr-3"></div>
+                  Company
+                </h4>
+                <ul className="space-y-4">
+                  {footerLinks.company.map((link, index) => (
+                    <li key={index}>
+                      <button
+                        onClick={() => scrollToSection(link.href)}
+                        className="text-gray-300 hover:text-red-400 transition-colors duration-300 text-sm flex items-center group"
+                      >
+                        <span className="group-hover:translate-x-2 transition-transform duration-300">
+                          {link.label}
+                        </span>
+                        <ExternalLink className="w-3 h-3 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Services */}
+              <div>
+                <h4 className="text-xl font-bold mb-8 text-white flex items-center">
+                  <div className="w-1 h-8 bg-gradient-to-b from-red-500 to-red-600 rounded-full mr-3"></div>
+                  Services
+                </h4>
+                <ul className="space-y-4">
+                  {footerLinks.services.map((link, index) => (
+                    <li key={index}>
+                      <button
+                        onClick={() => scrollToSection(link.href)}
+                        className="text-gray-300 hover:text-red-400 transition-colors duration-300 text-sm flex items-center group"
+                      >
+                        <span className="group-hover:translate-x-2 transition-transform duration-300">
+                          {link.label}
+                        </span>
+                        <ExternalLink className="w-3 h-3 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+              </div>
+
+              {/* Contact Info */}
+              <div>
+                <h4 className="text-xl font-bold mb-8 text-white flex items-center">
+                  <div className="w-1 h-8 bg-gradient-to-b from-red-500 to-red-600 rounded-full mr-3"></div>
+                  Get In Touch
+                </h4>
+                <ul className="space-y-4">
+                  {footerLinks.contact.map((link, index) => (
+                    <li key={index}>
+                      <button
+                        onClick={() => scrollToSection(link.href)}
+                        className="text-gray-300 hover:text-red-400 transition-colors duration-300 text-sm flex items-center group"
+                      >
+                        <span className="group-hover:translate-x-2 transition-transform duration-300">
+                          {link.label}
+                        </span>
+                        <ExternalLink className="w-3 h-3 ml-2 opacity-0 group-hover:opacity-100 transition-opacity duration-300" />
+                      </button>
+                    </li>
+                  ))}
+                </ul>
+
+                <div className="mt-8">
+                  <Button
+                    onClick={() => scrollToSection("#contact")}
+                    className="bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-6 py-3 rounded-xl font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg shadow-red-500/25"
+                  >
+                    Start Your Project
+                  </Button>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
-      </div>
 
-      {/* Copyright */}
-      <div className="border-t border-slate-800">
-        <div className="container-custom py-6">
-          <div className="flex flex-col md:flex-row justify-between items-center space-y-2 md:space-y-0 text-sm">
-            <p className="text-slate-400">
-              Copyright © 2024 Elite Veteran Solutions. All Rights Reserved.
-              Made by Yahya :p
-            </p>
-            <div className="flex items-center space-x-6 text-xs text-slate-500">
-              <a href="#" className="hover:text-orange-400 transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-orange-400 transition-colors">
-                Terms of Service
-              </a>
-              <span className="text-orange-400 font-medium">
-                Service Beyond Expectations
-              </span>
+        {/* Certifications Section */}
+        {/* <div className="border-t border-red-900/30">
+          <div className="container-custom py-12">
+            <div className="text-center mb-12">
+              <h3 className="text-2xl font-bold text-white mb-4">
+                Our <span className="gradient-text">Certifications</span>
+              </h3>
+              <p className="text-gray-400">
+                Trusted by federal agencies and recognized for excellence
+              </p>
+            </div>
+
+            <div className="grid md:grid-cols-3 gap-8 max-w-4xl mx-auto">
+              {certifications.map((cert, index) => (
+                <div
+                  key={index}
+                  className="group relative p-8 bg-gradient-to-br from-red-900/20 to-red-800/10 backdrop-blur-xl border border-red-800/30 rounded-3xl hover:border-red-500/50 transition-all duration-300 text-center hover:-translate-y-2"
+                >
+                  <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-3xl"></div>
+                  <div className="relative z-10">
+                    <div className="w-16 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center mx-auto mb-4 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-red-500/25">
+                      {cert.title === "ISO 27001" ? (
+                        <Shield className="w-8 h-8 text-white" />
+                      ) : (
+                        <span className="text-white text-xs font-bold">
+                          SBA
+                        </span>
+                      )}
+                    </div>
+                    <h4 className="text-xl font-bold text-white mb-2 group-hover:text-red-300 transition-colors">
+                      {cert.title}
+                    </h4>
+                    <p className="text-gray-300 text-sm mb-1">
+                      {cert.subtitle}
+                    </p>
+                    <p className="text-red-400 text-xs font-semibold">
+                      {cert.description}
+                    </p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div> */}
+
+        {/* Bottom Section */}
+        <div className="border-t border-red-900/30">
+          <div className="container-custom py-8">
+            <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
+              {/* Copyright */}
+              <div className="text-center md:text-left">
+                <p className="text-gray-400 text-sm">
+                  Copyright © 2024 Elite Veteran Solutions. All Rights Reserved.
+                </p>
+                <p className="text-xs text-gray-500 mt-1">
+                  Made with ❤️ by Yahya
+                </p>
+              </div>
+
+              {/* Scroll to Top Button */}
+              <div className="flex items-center space-x-4">
+                <div className="flex items-center space-x-2 text-xs text-gray-500">
+                  <Globe className="w-4 h-4" />
+                  <span className="gradient-text font-semibold">
+                    Service Beyond Expectations
+                  </span>
+                </div>
+                <Button
+                  onClick={scrollToTop}
+                  variant="outline"
+                  size="icon"
+                  className="border-red-600 text-red-400 hover:bg-red-600 hover:text-white transition-all duration-300 hover:scale-110 rounded-xl"
+                >
+                  <ArrowUp className="h-5 w-5" />
+                </Button>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        {/* Final Brand Strip */}
+        <div className="border-t border-red-900/30 bg-gradient-to-r from-red-950/20 to-black">
+          <div className="container-custom py-6">
+            <div className="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0">
+              <div className="flex items-center space-x-6">
+                <div className="flex items-center space-x-3">
+                  <div className="w-12 h-8 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center shadow-lg shadow-red-500/25">
+                    <span className="text-white text-xs font-bold">EVS</span>
+                  </div>
+                  <div className="text-xs">
+                    <p className="text-white font-bold">ELITE VETERAN</p>
+                    <p className="text-red-400 font-semibold">SOLUTIONS</p>
+                  </div>
+                </div>
+              </div>
+
+              <div className="flex items-center space-x-6 text-xs text-gray-500">
+                <button className="hover:text-red-400 transition-colors">
+                  Privacy Policy
+                </button>
+                <button className="hover:text-red-400 transition-colors">
+                  Terms of Service
+                </button>
+                <button className="hover:text-red-400 transition-colors">
+                  Accessibility
+                </button>
+              </div>
             </div>
           </div>
         </div>
