@@ -343,7 +343,7 @@ const Footer = () => {
                   Copyright © 2024 Elite Veteran Solutions. All Rights Reserved.
                 </p>
                 <p className="text-xs text-gray-500 mt-1">
-                  Made with ❤️ by Yahya
+                  Made by Yahya el :p
                 </p>
               </div>
 
