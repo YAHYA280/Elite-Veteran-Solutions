@@ -162,19 +162,19 @@ const ContactSection = () => {
   return (
     <section
       id="contact"
-      className="section-padding bg-gradient-to-br from-black via-red-950 to-red-800 relative overflow-hidden"
+      className="section-padding bg-gradient-to-br from-red-950 via-black to-red-800 relative overflow-hidden"
     >
-      {/* Elegant Background Pattern */}
+      {/* Background overlay patterns */}
       <div className="absolute inset-0">
-        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-black via-red-950/20 to-black"></div>
-        <div className="absolute top-20 right-20 w-64 h-64 bg-red-500/5 rounded-full blur-3xl"></div>
-        <div className="absolute bottom-20 left-20 w-96 h-96 bg-red-600/5 rounded-full blur-3xl"></div>
+        <div className="absolute top-0 left-0 w-full h-full bg-gradient-to-br from-red-950 via-black/20 to-red-950"></div>
+        <div className="absolute top-20 right-20 w-64 h-64 bg-black/10 rounded-full blur-3xl"></div>
+        <div className="absolute bottom-20 left-20 w-96 h-96 bg-black/15 rounded-full blur-3xl"></div>
       </div>
 
       <div ref={sectionRef} className="container-custom relative z-10">
         {/* Enhanced Section Header */}
         <div className="animate-on-scroll text-center mb-16">
-          <div className="inline-flex items-center bg-gradient-to-r from-red-600/10 to-red-700/10 backdrop-blur-xl border border-red-500/20 rounded-full px-8 py-4 mb-8">
+          <div className="inline-flex items-center bg-gradient-to-l from-red-600/10 to-red-700/10 backdrop-blur-xl border border-red-500/20 rounded-full px-8 py-4 mb-8">
             <MessageSquare className="w-5 h-5 text-red-400 mr-3" />
             <span className="text-red-300 font-medium text-lg">
               Let&apos;s Start Your Journey
@@ -198,11 +198,11 @@ const ContactSection = () => {
             {quickStats.map((stat, index) => (
               <div
                 key={index}
-                className="group relative p-6 bg-gradient-to-br from-black/60 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-2xl hover:border-red-500/50 transition-all duration-300 hover:-translate-y-1"
+                className="group relative p-6 bg-gradient-to-bl from-red-950/20 to-black/60 backdrop-blur-xl border border-red-900/30 rounded-2xl hover:border-red-500/50 transition-all duration-300 hover:-translate-y-1"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-bl from-transparent to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-300 rounded-2xl"></div>
                 <div className="relative z-10">
-                  <div className="w-12 h-12 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-xl flex items-center justify-center mx-auto mb-3">
+                  <div className="w-12 h-12 bg-gradient-to-bl from-red-700/20 to-red-600/20 rounded-xl flex items-center justify-center mx-auto mb-3">
                     <stat.icon className="w-6 h-6 text-red-400" />
                   </div>
                   <div className="text-2xl font-bold text-white mb-1">
@@ -221,12 +221,12 @@ const ContactSection = () => {
             {contactInfo.map((info, index) => (
               <div
                 key={index}
-                className="group relative p-8 bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-3xl hover:border-red-500/50 transition-all duration-500 hover:-translate-y-2"
+                className="group relative p-8 bg-gradient-to-bl from-red-950/20 to-black/80 backdrop-blur-xl border border-red-900/30 rounded-3xl hover:border-red-500/50 transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-red-500/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
+                <div className="absolute inset-0 bg-gradient-to-bl from-transparent to-red-500/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 rounded-3xl"></div>
                 <div className="relative z-10 text-center">
                   <div
-                    className={`w-16 h-16 bg-gradient-to-br ${info.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-red-500/20`}
+                    className={`w-16 h-16 bg-gradient-to-bl ${info.color} rounded-2xl flex items-center justify-center mx-auto mb-6 group-hover:scale-110 transition-transform duration-300 shadow-lg shadow-red-500/20`}
                   >
                     <info.icon className="w-8 h-8 text-white" />
                   </div>
@@ -262,11 +262,11 @@ const ContactSection = () => {
         <div className="grid lg:grid-cols-3 gap-12 mb-16">
           {/* Contact Form - Takes 2 columns */}
           <div className="lg:col-span-2">
-            <Card className="animate-on-scroll bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 hover:border-red-500/30 transition-all duration-500 rounded-3xl overflow-hidden">
+            <Card className="animate-on-scroll bg-gradient-to-bl from-red-950/20 to-black/80 backdrop-blur-xl border border-red-900/30 hover:border-red-500/30 transition-all duration-500 rounded-3xl overflow-hidden">
               <CardContent className="p-10">
                 {isSubmitted ? (
                   <div className="text-center py-20">
-                    <div className="w-24 h-24 bg-gradient-to-br from-red-500/20 to-red-600/20 backdrop-blur-xl border border-red-500/30 rounded-3xl flex items-center justify-center mx-auto mb-8">
+                    <div className="w-24 h-24 bg-gradient-to-bl from-red-600/20 to-red-500/20 backdrop-blur-xl border border-red-500/30 rounded-3xl flex items-center justify-center mx-auto mb-8">
                       <CheckCircle className="w-12 h-12 text-red-400" />
                     </div>
                     <h3 className="text-4xl font-bold text-white mb-6">
@@ -441,7 +441,7 @@ const ContactSection = () => {
                         <Button
                           type="submit"
                           disabled={isSubmitting}
-                          className="flex-1 h-14 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 group shadow-lg shadow-red-500/25"
+                          className="flex-1 h-14 bg-gradient-to-l from-red-700 to-red-600 hover:from-red-800 hover:to-red-700 text-white text-lg font-semibold rounded-xl transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 group shadow-lg shadow-red-500/25"
                         >
                           {isSubmitting ? (
                             <>
@@ -475,10 +475,10 @@ const ContactSection = () => {
           {/* Sidebar - Takes 1 column */}
           <div className="space-y-8">
             {/* Certifications Card */}
-            <Card className="animate-on-scroll bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
+            <Card className="animate-on-scroll bg-gradient-to-bl from-red-950/20 to-black/80 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
               <CardContent className="p-8">
                 <div className="text-center mb-8">
-                  <div className="w-16 h-16 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
+                  <div className="w-16 h-16 bg-gradient-to-bl from-red-700/20 to-red-600/20 rounded-2xl flex items-center justify-center mx-auto mb-4">
                     <Shield className="w-8 h-8 text-red-400" />
                   </div>
                   <h3 className="text-2xl font-bold text-white mb-2">
@@ -488,7 +488,7 @@ const ContactSection = () => {
                 </div>
 
                 <div className="space-y-4">
-                  <div className="flex items-center justify-between p-4 bg-gradient-to-r from-red-900/20 to-red-800/20 rounded-2xl border border-red-800/30">
+                  <div className="flex items-center justify-between p-4 bg-gradient-to-l from-red-800/20 to-red-900/20 rounded-2xl border border-red-800/30">
                     <div className="flex items-center space-x-3">
                       <div className="w-12 h-8 bg-red-600 rounded-lg flex items-center justify-center">
                         <span className="text-white text-xs font-bold">
@@ -505,7 +505,7 @@ const ContactSection = () => {
                     </Badge>
                   </div>
 
-                  <div className="flex items-center justify-between p-4 bg-gradient-to-r from-red-900/20 to-red-800/20 rounded-2xl border border-red-800/30">
+                  <div className="flex items-center justify-between p-4 bg-gradient-to-l from-red-800/20 to-red-900/20 rounded-2xl border border-red-800/30">
                     <div className="flex items-center space-x-3">
                       <div className="w-12 h-8 bg-red-600 rounded-lg flex items-center justify-center">
                         <span className="text-white text-xs font-bold">
@@ -526,9 +526,9 @@ const ContactSection = () => {
                     </Badge>
                   </div>
 
-                  <div className="flex items-center justify-between p-4 bg-gradient-to-r from-red-900/20 to-red-800/20 rounded-2xl border border-red-800/30">
+                  <div className="flex items-center justify-between p-4 bg-gradient-to-l from-red-800/20 to-red-900/20 rounded-2xl border border-red-800/30">
                     <div className="flex items-center space-x-3">
-                      <div className="w-12 h-8 bg-gradient-to-br from-red-600 to-red-700 rounded-lg flex items-center justify-center">
+                      <div className="w-12 h-8 bg-gradient-to-bl from-red-700 to-red-600 rounded-lg flex items-center justify-center">
                         <Award className="w-5 h-5 text-white" />
                       </div>
                       <div>
@@ -549,7 +549,7 @@ const ContactSection = () => {
             </Card>
 
             {/* Why Choose Us Card */}
-            <Card className="animate-on-scroll bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
+            <Card className="animate-on-scroll bg-gradient-to-bl from-red-950/20 to-black/80 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
               <CardContent className="p-8">
                 <h3 className="text-2xl font-bold text-white mb-6 text-center">
                   Why Choose <span className="gradient-text">Us</span>?
@@ -565,7 +565,7 @@ const ContactSection = () => {
                       key={index}
                       className="flex items-center space-x-3 p-3 rounded-xl hover:bg-red-900/20 transition-colors"
                     >
-                      <div className="w-10 h-10 bg-gradient-to-br from-red-600/20 to-red-700/20 rounded-lg flex items-center justify-center">
+                      <div className="w-10 h-10 bg-gradient-to-bl from-red-700/20 to-red-600/20 rounded-lg flex items-center justify-center">
                         <item.icon className="w-5 h-5 text-red-400" />
                       </div>
                       <span className="text-gray-300">{item.text}</span>
@@ -579,7 +579,7 @@ const ContactSection = () => {
 
         {/* Interactive Map Section */}
         <div className="animate-on-scroll">
-          <Card className="bg-gradient-to-br from-black/80 to-red-950/20 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
+          <Card className="bg-gradient-to-bl from-red-950/20 to-black/80 backdrop-blur-xl border border-red-900/30 rounded-3xl overflow-hidden">
             <CardContent className="p-0">
               <div className="relative h-96">
                 {/* Embedded Google Map */}
@@ -598,9 +598,9 @@ const ContactSection = () => {
                 ></iframe>
 
                 {/* Overlay Info Card */}
-                <div className="absolute top-8 left-8 bg-gradient-to-br from-black/90 to-red-950/30 backdrop-blur-xl border border-red-500/30 rounded-2xl p-6 max-w-sm">
+                <div className="absolute top-8 left-8 bg-gradient-to-bl from-red-950/30 to-black/90 backdrop-blur-xl border border-red-500/30 rounded-2xl p-6 max-w-sm">
                   <div className="flex items-center space-x-3 mb-4">
-                    <div className="w-12 h-12 bg-gradient-to-br from-red-600 to-red-700 rounded-xl flex items-center justify-center">
+                    <div className="w-12 h-12 bg-gradient-to-bl from-red-700 to-red-600 rounded-xl flex items-center justify-center">
                       <MapPin className="w-6 h-6 text-white" />
                     </div>
                     <div>
