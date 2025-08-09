@@ -139,7 +139,7 @@ const ContactSection = () => {
       title: "Business Hours",
       value: "Mon-Fri: 8AM-8PM",
       subtitle: "Sat: 10AM-4PM",
-      color: "from-red-400 to-red-500",
+      color: "from-red-600 to-red-700", // Updated to match other red gradients
     },
   ];
 
