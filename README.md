@@ -178,4 +178,4 @@ This project is proprietary and confidential. All rights reserved by Elite Veter
 
 ---
 
-Built with ❤️ by the Elite Veteran Solutions team
+Built  by  Yahya el :p
