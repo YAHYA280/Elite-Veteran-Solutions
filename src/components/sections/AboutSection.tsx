@@ -96,12 +96,6 @@ const AboutSection = () => {
       icon: Award,
       status: "Active",
     },
-    {
-      title: "ISO 27001 Security Certified",
-      description: "International standard for information security",
-      icon: Lock,
-      status: "Certified",
-    },
   ];
 
   const achievements = [

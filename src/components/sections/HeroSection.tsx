@@ -203,33 +203,8 @@ const HeroSection = () => {
                   <div className="text-xs text-gray-400">Certified</div>
                 </div>
               </div>
-
-              <div className="flex items-center space-x-3 bg-black/60 border border-red-800 rounded-lg px-4 py-3 backdrop-blur-sm">
-                <Award className="w-6 h-6 text-red-400" />
-                <div className="text-left">
-                  <div className="text-xs font-semibold text-white">
-                    ISO 27001
-                  </div>
-                  <div className="text-xs text-gray-400">Certified</div>
-                </div>
-              </div>
             </div>
           </div>
-        </div>
-      </div>
-
-      {/* Scroll Indicator */}
-      <div className="absolute bottom-8 left-1/2 transform -translate-x-1/2">
-        <div
-          className="flex flex-col items-center cursor-pointer group animate-bounce"
-          onClick={() => scrollToSection("#about")}
-        >
-          <div className="w-6 h-10 border-2 border-red-400 rounded-full flex justify-center">
-            <div className="w-1 h-3 bg-red-500 rounded-full mt-2"></div>
-          </div>
-          <p className="text-xs text-gray-400 mt-2 font-medium">
-            Scroll to explore
-          </p>
         </div>
       </div>
 

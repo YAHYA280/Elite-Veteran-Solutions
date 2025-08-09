@@ -525,25 +525,6 @@ const ContactSection = () => {
                       Active
                     </Badge>
                   </div>
-
-                  <div className="flex items-center justify-between p-4 bg-gradient-to-l from-red-800/20 to-red-900/20 rounded-2xl border border-red-800/30">
-                    <div className="flex items-center space-x-3">
-                      <div className="w-12 h-8 bg-gradient-to-bl from-red-700 to-red-600 rounded-lg flex items-center justify-center">
-                        <Award className="w-5 h-5 text-white" />
-                      </div>
-                      <div>
-                        <p className="text-white font-semibold text-sm">
-                          ISO 27001
-                        </p>
-                        <p className="text-gray-400 text-xs">
-                          Security Standard
-                        </p>
-                      </div>
-                    </div>
-                    <Badge className="bg-green-500/20 text-green-400 border border-green-500/30">
-                      Certified
-                    </Badge>
-                  </div>
                 </div>
               </CardContent>
             </Card>
