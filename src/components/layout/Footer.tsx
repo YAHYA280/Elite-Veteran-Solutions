@@ -2,7 +2,7 @@
 
 import React from "react";
 import { Button } from "@/components/ui/button";
-import { Phone, Mail, MapPin, ArrowUp, ExternalLink } from "lucide-react";
+import { Phone, Mail, MapPin, ArrowUp } from "lucide-react";
 import Image from "next/image";
 
 const Footer = () => {
@@ -35,12 +35,6 @@ const Footer = () => {
     ],
   };
 
-  const socialLinks = [
-    { name: "LinkedIn", href: "#", icon: "linkedin" },
-    { name: "Twitter", href: "#", icon: "twitter" },
-    { name: "Facebook", href: "#", icon: "facebook" },
-  ];
-
   return (
     <footer className="bg-gray-900 text-white relative">
       {/* Main Footer Content */}
@@ -64,27 +58,13 @@ const Footer = () => {
               innovative thinking to deliver unparalleled results in the federal
               marketplace.
             </p>
-
-            {/* Social Media */}
-            <div className="flex space-x-4">
-              {socialLinks.map((social, index) => (
-                <a
-                  key={index}
-                  href={social.href}
-                  className="w-10 h-10 bg-gray-800 hover:bg-orange-600 rounded-lg flex items-center justify-center transition-colors group"
-                  aria-label={social.name}
-                >
-                  <ExternalLink className="w-5 h-5 text-gray-300 group-hover:text-white" />
-                </a>
-              ))}
-            </div>
           </div>
 
           {/* Quick Links */}
           <div className="grid md:grid-cols-3 gap-8 lg:col-span-3">
             {/* Company */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 text-orange-400">
+              <h4 className="text-lg font-semibold mb-6 text-red-600">
                 Company
               </h4>
               <ul className="space-y-3">
@@ -92,7 +72,7 @@ const Footer = () => {
                   <li key={index}>
                     <button
                       onClick={() => scrollToSection(link.href)}
-                      className="text-gray-300 hover:text-orange-400 transition-colors text-sm"
+                      className="text-gray-300 hover:text-red-600 transition-colors duration-300 text-sm"
                     >
                       {link.label}
                     </button>
@@ -103,7 +83,7 @@ const Footer = () => {
 
             {/* Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 text-orange-400">
+              <h4 className="text-lg font-semibold mb-6 text-red-600">
                 Services
               </h4>
               <ul className="space-y-3">
@@ -111,7 +91,7 @@ const Footer = () => {
                   <li key={index}>
                     <button
                       onClick={() => scrollToSection(link.href)}
-                      className="text-gray-300 hover:text-orange-400 transition-colors text-sm"
+                      className="text-gray-300 hover:text-red-600 transition-colors duration-300 text-sm"
                     >
                       {link.label}
                     </button>
@@ -122,34 +102,34 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 text-orange-400">
+              <h4 className="text-lg font-semibold mb-6 text-red-600">
                 Get In Touch
               </h4>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
-                  <Phone className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
+                  <Phone className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <a
                       href="tel:888-747-9909"
-                      className="text-gray-300 hover:text-orange-400 transition-colors text-sm"
+                      className="text-gray-300 hover:text-red-600 transition-colors duration-300 text-sm"
                     >
                       888-747-9909
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <Mail className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
+                  <Mail className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <a
                       href="mailto:info@elitevetsolutions.com"
-                      className="text-gray-300 hover:text-orange-400 transition-colors text-sm"
+                      className="text-gray-300 hover:text-red-600 transition-colors duration-300 text-sm"
                     >
                       info@elitevetsolutions.com
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-orange-400 flex-shrink-0 mt-0.5" />
+                  <MapPin className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
                   <div>
                     <p className="text-gray-300 text-sm">
                       San Antonio, Texas
@@ -172,8 +152,14 @@ const Footer = () => {
               {/* SBA Certifications */}
               <div className="flex items-center space-x-6">
                 <div className="flex items-center space-x-3">
-                  <div className="w-16 h-12 bg-blue-600 rounded flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">SBA</span>
+                  <div className="w-16 h-12 bg-white rounded flex items-center justify-center p-2">
+                    <Image
+                      src="/SbaLogo.png"
+                      alt="SBA Logo"
+                      width={56}
+                      height={32}
+                      className="object-contain"
+                    />
                   </div>
                   <div className="text-xs">
                     <p className="text-white font-medium">VETERAN-OWNED</p>
@@ -181,8 +167,14 @@ const Footer = () => {
                   </div>
                 </div>
                 <div className="flex items-center space-x-3">
-                  <div className="w-16 h-12 bg-blue-600 rounded flex items-center justify-center">
-                    <span className="text-white text-xs font-bold">SBA</span>
+                  <div className="w-16 h-12 bg-white rounded flex items-center justify-center p-2">
+                    <Image
+                      src="/SbaLogo.png"
+                      alt="SBA Logo"
+                      width={56}
+                      height={32}
+                      className="object-contain"
+                    />
                   </div>
                   <div className="text-xs">
                     <p className="text-white font-medium">SERVICE-DISABLED</p>
@@ -197,7 +189,7 @@ const Footer = () => {
               onClick={scrollToTop}
               variant="outline"
               size="icon"
-              className="border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white transition-all duration-300"
+              className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300"
             >
               <ArrowUp className="h-4 w-4" />
             </Button>
