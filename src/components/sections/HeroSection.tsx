@@ -59,7 +59,7 @@ const HeroSection = () => {
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               YOUR STRATEGIC PARTNER IN
             </h1>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-red-500 via-red-500 to-red-500 bg-clip-text text-transparent leading-tight">
               GOVERNMENT CONTRACTING
             </h1>
           </div>
@@ -114,7 +114,7 @@ const HeroSection = () => {
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
               <div className="text-center p-8 bg-slate-800/90 backdrop-blur-sm border border-slate-500/50 rounded-2xl shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
                 <div className="mb-6 flex justify-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-red-500/20 to-red-600/30 border border-red-400/30 rounded-2xl flex items-center justify-center shadow-xl">
+                  <div className="w-20 h-20 bg-gradient-to-br from-red-400/30 to-red-600/30 border border-red-400/30 rounded-2xl flex items-center justify-center shadow-xl">
                     <img
                       src="/HeroSectionIcons/expertise.png"
                       alt="Years of Excellence"
