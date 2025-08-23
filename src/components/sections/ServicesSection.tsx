@@ -133,8 +133,8 @@ const ServicesSection = () => {
         "Project management and oversight",
         "Quality assurance and compliance",
       ],
-      gradient: "from-orange-500 to-orange-600",
-      iconColor: "text-orange-400",
+      gradient: "from-red-500 to-red-600", // Changed to red gradient
+      iconColor: "text-red-400", // Changed to red
       price: "Custom Quote",
       popular: false,
       backgroundImage: "/ServiceSection/Constructing.jpg",
@@ -192,18 +192,8 @@ const ServicesSection = () => {
           {services.map((service, index) => (
             <Card
               key={index}
-              className={`animate-on-scroll group bg-gray-800/50 border-gray-700/50 hover:border-orange-500/30 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden backdrop-blur-sm ${
-                service.popular ? "ring-2 ring-orange-500/30" : ""
-              }`}
+              className="animate-on-scroll group bg-gray-800/50 border-gray-700/50 hover:border-red-500/30 transition-all duration-300 transform hover:-translate-y-2 overflow-hidden backdrop-blur-sm"
             >
-              {service.popular && (
-                <div className="absolute top-4 right-4 z-10">
-                  <Badge className="bg-orange-600 text-white">
-                    Most Popular
-                  </Badge>
-                </div>
-              )}
-
               <CardContent className="p-0 h-full flex flex-col">
                 {/* Top 50% - Background Image */}
                 <div
@@ -225,11 +215,6 @@ const ServicesSection = () => {
 
                 {/* Bottom 50% - Content */}
                 <div className="p-6 flex-1 flex flex-col">
-                  {/* Price */}
-                  <p className="text-orange-400 font-medium text-sm mb-4">
-                    {service.price}
-                  </p>
-
                   {/* Service Description */}
                   <p className="text-gray-300 mb-4 leading-relaxed text-sm flex-1">
                     {service.description}
@@ -248,10 +233,22 @@ const ServicesSection = () => {
                     ))}
                   </div>
 
-                  {/* CTA Button */}
+                  {/* CTA Button - Updated with red hover */}
                   <Button
                     onClick={scrollToContact}
-                    className="w-full bg-gray-700/50 hover:bg-orange-600 text-gray-300 hover:text-white border border-gray-600/50 hover:border-orange-500 transition-all duration-300"
+                    className="w-full bg-gray-700/50 text-gray-300 border border-gray-600/50 transition-all duration-300 hover:bg-red-600 hover:border-red-500 hover:text-white"
+                    onMouseEnter={(e) => {
+                      (e.target as HTMLButtonElement).style.backgroundColor =
+                        "#d51e1e";
+                      (e.target as HTMLButtonElement).style.borderColor =
+                        "#d51e1e";
+                    }}
+                    onMouseLeave={(e) => {
+                      (e.target as HTMLButtonElement).style.backgroundColor =
+                        "rgba(55, 65, 81, 0.5)";
+                      (e.target as HTMLButtonElement).style.borderColor =
+                        "rgba(75, 85, 99, 0.5)";
+                    }}
                   >
                     Learn More
                     <ArrowRight className="ml-2 w-4 h-4" />
@@ -262,7 +259,7 @@ const ServicesSection = () => {
           ))}
         </div>
 
-        {/* Process Section */}
+        {/* Process Section - Updated with red accent */}
         <div className="animate-on-scroll mb-20">
           <div className="text-center mb-12">
             <h3 className="text-3xl font-bold text-white mb-4">
@@ -278,12 +275,12 @@ const ServicesSection = () => {
             {processSteps.map((step, index) => (
               <div key={index} className="text-center">
                 <div className="relative mb-6">
-                  <div className="w-14 h-14 bg-orange-600 rounded-xl flex items-center justify-center mx-auto text-white font-bold text-lg">
+                  <div
+                    className="w-14 h-14 rounded-xl flex items-center justify-center mx-auto text-white font-bold text-lg"
+                    style={{ backgroundColor: "#d51e1e" }}
+                  >
                     {step.step}
                   </div>
-                  {index < processSteps.length - 1 && (
-                    <div className="hidden lg:block absolute top-7 left-14 w-full h-0.5 bg-gradient-to-r from-orange-500/50 to-transparent"></div>
-                  )}
                 </div>
                 <h4 className="text-lg font-semibold text-white mb-2">
                   {step.title}

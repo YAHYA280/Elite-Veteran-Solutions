@@ -36,11 +36,17 @@ const Navbar = () => {
   return (
     <>
       <nav
-        className={`fixed w-full top-0 z-50 transition-all duration-300 ${
-          isScrolled
-            ? "bg-gray-900/95 backdrop-blur-md shadow-xl border-b border-gray-800"
-            : "bg-gray-900/90 backdrop-blur-sm"
+        className={`fixed w-full top-0 z-50 transition-all duration-300 backdrop-blur-md shadow-xl border-b ${
+          isScrolled ? "" : ""
         }`}
+        style={{
+          backgroundColor: isScrolled
+            ? "rgba(11, 30, 48, 0.95)"
+            : "rgba(11, 30, 48, 0.90)",
+          borderBottomColor: isScrolled
+            ? "rgba(11, 30, 48, 0.8)"
+            : "rgba(11, 30, 48, 0.6)",
+        }}
       >
         <div className="container-custom">
           <div className="flex items-center justify-between h-20">
@@ -67,10 +73,19 @@ const Navbar = () => {
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="relative text-gray-300 hover:text-orange-400 font-medium transition-all duration-300 py-2 group"
+                  className="relative text-gray-300 font-medium transition-all duration-300 py-2 group"
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLButtonElement).style.color = "#d51e1e";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLButtonElement).style.color = "#d1d5db";
+                  }}
                 >
                   {link.label}
-                  <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
+                  <span
+                    className="absolute bottom-0 left-0 w-0 h-0.5 transition-all duration-300 group-hover:w-full"
+                    style={{ backgroundColor: "#d51e1e" }}
+                  ></span>
                 </button>
               ))}
             </div>
@@ -95,13 +110,25 @@ const Navbar = () => {
 
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
-          <div className="lg:hidden bg-gray-900/95 backdrop-blur-md border-t border-gray-800">
+          <div
+            className="lg:hidden backdrop-blur-md border-t"
+            style={{
+              backgroundColor: "rgba(11, 30, 48, 0.95)",
+              borderTopColor: "rgba(11, 30, 48, 0.8)",
+            }}
+          >
             <div className="px-4 py-6 space-y-4">
               {navLinks.map((link) => (
                 <button
                   key={link.href}
                   onClick={() => scrollToSection(link.href)}
-                  className="block w-full text-left px-4 py-3 text-gray-300 hover:text-orange-400 hover:bg-gray-800/50 rounded-lg transition-all duration-300 font-medium"
+                  className="block w-full text-left px-4 py-3 text-gray-300 hover:bg-gray-800/50 rounded-lg transition-all duration-300 font-medium"
+                  onMouseEnter={(e) => {
+                    (e.target as HTMLButtonElement).style.color = "#d51e1e";
+                  }}
+                  onMouseLeave={(e) => {
+                    (e.target as HTMLButtonElement).style.color = "#d1d5db";
+                  }}
                 >
                   {link.label}
                 </button>

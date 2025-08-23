@@ -53,7 +53,7 @@ const Footer = () => {
               />
             </div>
 
-            <p className="text-gray-400 text-sm mb-6 leading-relaxed">
+            <p className="text-gray-300 text-sm mb-6 leading-relaxed">
               Elite Veteran Solutions combines proven military precision and
               innovative thinking to deliver unparalleled results in the federal
               marketplace.
@@ -64,7 +64,10 @@ const Footer = () => {
           <div className="grid md:grid-cols-3 gap-8 lg:col-span-3">
             {/* Company */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 text-red-600">
+              <h4
+                className="text-lg font-semibold mb-6"
+                style={{ color: "#d51e1e" }}
+              >
                 Company
               </h4>
               <ul className="space-y-3">
@@ -72,7 +75,16 @@ const Footer = () => {
                   <li key={index}>
                     <button
                       onClick={() => scrollToSection(link.href)}
-                      className="text-gray-300 hover:text-red-600 transition-colors duration-300 text-sm"
+                      className="text-gray-300 transition-colors duration-300 text-sm"
+                      style={{
+                        color: "#d1d5db",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLButtonElement).style.color = "#d51e1e";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLButtonElement).style.color = "#d1d5db";
+                      }}
                     >
                       {link.label}
                     </button>
@@ -83,7 +95,10 @@ const Footer = () => {
 
             {/* Services */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 text-red-600">
+              <h4
+                className="text-lg font-semibold mb-6"
+                style={{ color: "#d51e1e" }}
+              >
                 Services
               </h4>
               <ul className="space-y-3">
@@ -91,7 +106,16 @@ const Footer = () => {
                   <li key={index}>
                     <button
                       onClick={() => scrollToSection(link.href)}
-                      className="text-gray-300 hover:text-red-600 transition-colors duration-300 text-sm"
+                      className="text-gray-300 transition-colors duration-300 text-sm"
+                      style={{
+                        color: "#d1d5db",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLButtonElement).style.color = "#d51e1e";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLButtonElement).style.color = "#d1d5db";
+                      }}
                     >
                       {link.label}
                     </button>
@@ -102,34 +126,64 @@ const Footer = () => {
 
             {/* Contact Info */}
             <div>
-              <h4 className="text-lg font-semibold mb-6 text-red-600">
+              <h4
+                className="text-lg font-semibold mb-6"
+                style={{ color: "#d51e1e" }}
+              >
                 Get In Touch
               </h4>
               <ul className="space-y-4">
                 <li className="flex items-start space-x-3">
-                  <Phone className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <Phone
+                    className="w-5 h-5 flex-shrink-0 mt-0.5"
+                    style={{ color: "#d51e1e" }}
+                  />
                   <div>
                     <a
                       href="tel:888-747-9909"
-                      className="text-gray-300 hover:text-red-600 transition-colors duration-300 text-sm"
+                      className="text-gray-300 transition-colors duration-300 text-sm"
+                      style={{
+                        color: "#d1d5db",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLAnchorElement).style.color = "#d51e1e";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLAnchorElement).style.color = "#d1d5db";
+                      }}
                     >
                       888-747-9909
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <Mail className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <Mail
+                    className="w-5 h-5 flex-shrink-0 mt-0.5"
+                    style={{ color: "#d51e1e" }}
+                  />
                   <div>
                     <a
                       href="mailto:info@elitevetsolutions.com"
-                      className="text-gray-300 hover:text-red-600 transition-colors duration-300 text-sm"
+                      className="text-gray-300 transition-colors duration-300 text-sm"
+                      style={{
+                        color: "#d1d5db",
+                      }}
+                      onMouseEnter={(e) => {
+                        (e.target as HTMLAnchorElement).style.color = "#d51e1e";
+                      }}
+                      onMouseLeave={(e) => {
+                        (e.target as HTMLAnchorElement).style.color = "#d1d5db";
+                      }}
                     >
                       info@elitevetsolutions.com
                     </a>
                   </div>
                 </li>
                 <li className="flex items-start space-x-3">
-                  <MapPin className="w-5 h-5 text-red-600 flex-shrink-0 mt-0.5" />
+                  <MapPin
+                    className="w-5 h-5 flex-shrink-0 mt-0.5"
+                    style={{ color: "#d51e1e" }}
+                  />
                   <div>
                     <p className="text-gray-300 text-sm">
                       San Antonio, Texas
@@ -145,7 +199,7 @@ const Footer = () => {
       </div>
 
       {/* Certifications Bar */}
-      <div className="border-t border-gray-800">
+      <div className="border-t" style={{ borderColor: "#1f2937" }}>
         <div className="container-custom py-8">
           <div className="flex flex-col md:flex-row items-center justify-between space-y-4 md:space-y-0">
             <div className="flex items-center space-x-8">
@@ -189,7 +243,21 @@ const Footer = () => {
               onClick={scrollToTop}
               variant="outline"
               size="icon"
-              className="border-red-600 text-red-600 hover:bg-red-600 hover:text-white transition-all duration-300"
+              className="text-white transition-all duration-300"
+              style={{
+                borderColor: "#d51e1e",
+                color: "#d51e1e",
+              }}
+              onMouseEnter={(e) => {
+                (e.target as HTMLButtonElement).style.backgroundColor =
+                  "#d51e1e";
+                (e.target as HTMLButtonElement).style.color = "#ffffff";
+              }}
+              onMouseLeave={(e) => {
+                (e.target as HTMLButtonElement).style.backgroundColor =
+                  "transparent";
+                (e.target as HTMLButtonElement).style.color = "#d51e1e";
+              }}
             >
               <ArrowUp className="h-4 w-4" />
             </Button>
@@ -198,7 +266,7 @@ const Footer = () => {
       </div>
 
       {/* Copyright */}
-      <div className="border-t border-gray-800">
+      <div className="border-t" style={{ borderColor: "#1f2937" }}>
         <div className="container-custom py-6">
           <div className="text-center">
             <p className="text-gray-400 text-sm">

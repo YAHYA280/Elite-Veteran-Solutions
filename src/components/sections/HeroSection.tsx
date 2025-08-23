@@ -54,12 +54,12 @@ const HeroSection = () => {
       {/* Main content */}
       <div className="relative z-10 w-full max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center">
-          {/* Main Title - Made it super visible */}
+          {/* Main Title - Updated with red gradient */}
           <div className="mb-8">
             <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold text-white mb-6 leading-tight">
               YOUR STRATEGIC PARTNER IN
             </h1>
-            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-orange-400 via-orange-500 to-orange-600 bg-clip-text text-transparent leading-tight">
+            <h1 className="text-4xl sm:text-5xl md:text-6xl lg:text-7xl font-bold bg-gradient-to-r from-red-400 via-red-500 to-red-600 bg-clip-text text-transparent leading-tight">
               GOVERNMENT CONTRACTING
             </h1>
           </div>
@@ -109,12 +109,12 @@ const HeroSection = () => {
             </div>
           </div>
 
-          {/* Stats Section - Enhanced with better visibility and styling */}
+          {/* Stats Section - Enhanced with red accent color */}
           <div className="mb-16">
             <div className="grid grid-cols-2 md:grid-cols-4 gap-6 max-w-6xl mx-auto">
               <div className="text-center p-8 bg-slate-800/90 backdrop-blur-sm border border-slate-500/50 rounded-2xl shadow-2xl hover:transform hover:scale-105 transition-all duration-300">
                 <div className="mb-6 flex justify-center">
-                  <div className="w-20 h-20 bg-gradient-to-br from-orange-500/20 to-orange-600/30 border border-orange-400/30 rounded-2xl flex items-center justify-center shadow-xl">
+                  <div className="w-20 h-20 bg-gradient-to-br from-red-500/20 to-red-600/30 border border-red-400/30 rounded-2xl flex items-center justify-center shadow-xl">
                     <img
                       src="/HeroSectionIcons/YearsOfExcellence.png"
                       alt="Years of Excellence"
@@ -236,7 +236,7 @@ const HeroSection = () => {
         </div>
       </div>
 
-      {/* Quick Contact - Desktop Only */}
+      {/* Quick Contact - Desktop Only - Updated with red color */}
       <div className="absolute top-1/2 right-8 hidden xl:flex flex-col space-y-3 transform -translate-y-1/2">
         <a
           href="tel:888-747-9909"
@@ -247,8 +247,9 @@ const HeroSection = () => {
         </a>
         <a
           href="mailto:info@elitevetsolutions.com"
-          className="w-12 h-12 bg-orange-600 hover:bg-orange-700 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
+          className="w-12 h-12 bg-red-600 hover:bg-red-700 text-white rounded-full flex items-center justify-center shadow-lg transition-all duration-300"
           title="Email Us"
+          style={{ backgroundColor: "#d51e1e" }}
         >
           <Mail className="w-5 h-5" />
         </a>

@@ -123,7 +123,7 @@ const ContactSection = () => {
         <div className="animate-on-scroll text-center mb-20">
           <h2 className="text-4xl md:text-6xl font-bold text-black mb-8 leading-tight">
             Ready to Transform Your
-            <span className="block gradient-text mt-2">
+            <span className="block text-4xl md:text-6xl font-bold bg-gradient-to-r from-red-500 via-red-600 to-red-700 bg-clip-text text-transparent mt-2">
               Government Contracting?
             </span>
           </h2>
@@ -137,7 +137,13 @@ const ContactSection = () => {
 
         {/* Contact Form - Full Width */}
         <div className="max-w-4xl mx-auto">
-          <Card className="animate-on-scroll bg-slate-800/90 backdrop-blur-sm border-slate-600 hover:border-red-500/30 transition-all shadow-xl">
+          <Card
+            className="animate-on-scroll backdrop-blur-sm border-slate-600 transition-all shadow-xl"
+            style={{
+              backgroundColor: "#0f304a",
+              borderColor: "#d51e1e",
+            }}
+          >
             <CardContent className="p-8">
               {isSubmitted ? (
                 <div className="text-center py-16">
@@ -162,9 +168,6 @@ const ContactSection = () => {
                     <h3 className="text-2xl font-bold text-white">
                       Send Us a Message
                     </h3>
-                    <Badge className="bg-red-600/20 text-red-400 border border-red-600/30">
-                      Free Consultation
-                    </Badge>
                   </div>
 
                   <form
@@ -322,7 +325,20 @@ const ContactSection = () => {
                       <Button
                         type="submit"
                         disabled={isSubmitting}
-                        className="flex-1 bg-gradient-to-r from-red-600 to-red-700 hover:from-red-700 hover:to-red-800 text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed group"
+                        className="flex-1 text-white px-8 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-[1.02] disabled:opacity-50 disabled:cursor-not-allowed group"
+                        style={{
+                          backgroundColor: "#d51e1e",
+                        }}
+                        onMouseEnter={(e) => {
+                          (
+                            e.target as HTMLButtonElement
+                          ).style.backgroundColor = "#b91c1c";
+                        }}
+                        onMouseLeave={(e) => {
+                          (
+                            e.target as HTMLButtonElement
+                          ).style.backgroundColor = "#d51e1e";
+                        }}
                       >
                         {isSubmitting ? (
                           <>
