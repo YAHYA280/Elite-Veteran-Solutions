@@ -73,12 +73,6 @@ const Navbar = () => {
                   <span className="absolute bottom-0 left-0 w-0 h-0.5 bg-orange-500 transition-all duration-300 group-hover:w-full"></span>
                 </button>
               ))}
-              <Button
-                onClick={() => scrollToSection("#contact")}
-                className="bg-orange-600 hover:bg-orange-700 text-white px-6 py-2 rounded-lg font-medium transition-all duration-300 transform hover:scale-105"
-              >
-                Get Quote
-              </Button>
             </div>
 
             {/* Mobile Menu Button */}
@@ -112,14 +106,6 @@ const Navbar = () => {
                   {link.label}
                 </button>
               ))}
-              <div className="pt-4 border-t border-gray-800">
-                <Button
-                  onClick={() => scrollToSection("#contact")}
-                  className="w-full bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-medium"
-                >
-                  Get Quote
-                </Button>
-              </div>
             </div>
           </div>
         )}

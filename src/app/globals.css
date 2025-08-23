@@ -1,48 +1,48 @@
 @import "tailwindcss";
 
-/* Enhanced Custom Styles for Dark Theme */
+/* Enhanced Custom Styles for Dark Theme with Navy Accent */
 html {
   scroll-behavior: smooth;
 }
 
 body {
-  background-color: #0f172a; /* Changed to darker slate */
+  background-color: #000000; /* Pure black background */
   color: #f1f5f9;
 }
 
-/* Enhanced Gradient Text */
+/* Enhanced Gradient Text with Navy Theme */
 .gradient-text {
-  background: linear-gradient(135deg, #f97316, #ea580c, #fb923c);
+  background: linear-gradient(135deg, #1e3a8a, #1e40af, #3b82f6);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
 }
 
-/* Updated Dark Theme Gradients */
+/* Updated Dark Theme Gradients with Navy Scheme */
 .dark-gradient {
-  background: linear-gradient(135deg, #0f172a, #1e293b, #334155);
+  background: linear-gradient(135deg, #000000, #1e1b4b, #1e3a8a);
 }
 
-.orange-gradient {
-  background: linear-gradient(135deg, #f97316, #ea580c);
+.navy-gradient {
+  background: linear-gradient(135deg, #1e3a8a, #1e40af);
 }
 
-.blue-gradient {
-  background: linear-gradient(135deg, #3b82f6, #1d4ed8);
+.dark-navy-gradient {
+  background: linear-gradient(135deg, #1e1b4b, #1e3a8a);
 }
 
-/* Enhanced Glass Effect for Dark Theme */
+/* Enhanced Glass Effect for Dark Navy Theme */
 .glass-effect {
-  background: rgba(30, 41, 59, 0.8);
+  background: rgba(30, 27, 75, 0.8);
   backdrop-filter: blur(16px);
-  border: 1px solid rgba(71, 85, 105, 0.3);
+  border: 1px solid rgba(59, 130, 246, 0.3);
 }
 
-/* Dark Card Effect with better contrast */
+/* Dark Card Effect with Navy Accents */
 .dark-card {
-  background: rgba(15, 23, 42, 0.95);
-  border: 1px solid rgba(51, 65, 85, 0.5);
-  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.4);
+  background: rgba(0, 0, 0, 0.95);
+  border: 1px solid rgba(30, 27, 75, 0.5);
+  box-shadow: 0 10px 25px rgba(59, 130, 246, 0.1);
 }
 
 /* Enhanced Section Padding */
@@ -88,9 +88,9 @@ body {
   transform: translateX(0);
 }
 
-/* Enhanced Hero Background with better contrast */
+/* Enhanced Hero Background with Navy Theme */
 .hero-bg {
-  background: linear-gradient(135deg, #0f172a 0%, #1e293b 50%, #334155 100%);
+  background: linear-gradient(135deg, #000000 0%, #1e1b4b 50%, #1e3a8a 100%);
   position: relative;
   overflow: hidden;
 }
@@ -104,7 +104,7 @@ body {
   bottom: 0;
   background: radial-gradient(
     circle at 50% 50%,
-    rgba(249, 115, 22, 0.1) 0%,
+    rgba(59, 130, 246, 0.1) 0%,
     transparent 50%
   );
   animation: pulse-glow 4s ease-in-out infinite;
@@ -117,7 +117,7 @@ body {
   left: 0;
   right: 0;
   bottom: 0;
-  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%23f97316' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
+  background: url("data:image/svg+xml,%3Csvg width='60' height='60' viewBox='0 0 60 60' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' fill-rule='evenodd'%3E%3Cg fill='%233B82F6' fill-opacity='0.03'%3E%3Ccircle cx='30' cy='30' r='2'/%3E%3C/g%3E%3C/g%3E%3C/svg%3E");
   animation: float 20s ease-in-out infinite;
 }
 
@@ -159,34 +159,34 @@ body {
 
 .hover-lift:hover {
   transform: translateY(-8px);
-  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.4);
+  box-shadow: 0 20px 40px rgba(59, 130, 246, 0.2);
 }
 
-/* Enhanced Button Styles */
+/* Enhanced Button Styles with Navy Theme */
 .btn-primary {
-  @apply bg-orange-600 hover:bg-orange-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
+  @apply bg-blue-600 hover:bg-blue-700 text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105 shadow-lg hover:shadow-xl;
 }
 
 .btn-secondary {
-  @apply border border-slate-600 text-slate-300 hover:bg-slate-700 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
+  @apply border border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300 transform hover:scale-105;
 }
 
 .btn-outline {
-  @apply border-2 border-orange-600 text-orange-600 hover:bg-orange-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
+  @apply border-2 border-blue-600 text-blue-400 hover:bg-blue-600 hover:text-white px-6 py-3 rounded-lg font-semibold transition-all duration-300;
 }
 
-/* Form Styles for Dark Theme with better contrast */
+/* Form Styles for Dark Navy Theme */
 .form-input {
-  @apply w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all;
+  @apply w-full px-4 py-3 bg-black border border-blue-900 rounded-lg text-gray-100 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all;
 }
 
 .form-textarea {
-  @apply w-full px-4 py-3 bg-slate-800 border border-slate-600 rounded-lg text-slate-100 placeholder-slate-400 focus:outline-none focus:border-orange-500 focus:ring-2 focus:ring-orange-500/20 transition-all resize-none;
+  @apply w-full px-4 py-3 bg-black border border-blue-900 rounded-lg text-gray-100 placeholder-gray-400 focus:outline-none focus:border-blue-500 focus:ring-2 focus:ring-blue-500/20 transition-all resize-none;
 }
 
 /* Loading States */
 .loading-spinner {
-  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-orange-500;
+  @apply animate-spin rounded-full h-8 w-8 border-b-2 border-blue-500;
 }
 
 /* Enhanced Scroll Indicators */
@@ -203,7 +203,7 @@ body {
 .scroll-dot {
   width: 4px;
   height: 12px;
-  background: rgba(249, 115, 22, 0.7);
+  background: rgba(59, 130, 246, 0.7);
   border-radius: 2px;
   animation: scroll-bounce 2s ease-in-out infinite;
 }
@@ -220,9 +220,9 @@ body {
   }
 }
 
-/* Service Card Enhancements with better contrast */
+/* Service Card Enhancements with Navy Theme */
 .service-card {
-  @apply bg-slate-800 border border-slate-600 rounded-2xl p-8 transition-all duration-500 hover:border-orange-500/50 hover:shadow-2xl hover:-translate-y-2;
+  @apply bg-black border border-blue-900 rounded-2xl p-8 transition-all duration-500 hover:border-blue-500/50 hover:shadow-2xl hover:-translate-y-2;
 }
 
 .service-card::before {
@@ -235,8 +235,8 @@ body {
   border-radius: 1rem;
   background: linear-gradient(
     135deg,
-    rgba(249, 115, 22, 0.1),
-    rgba(234, 88, 12, 0.1)
+    rgba(59, 130, 246, 0.1),
+    rgba(30, 58, 138, 0.1)
   );
   opacity: 0;
   transition: opacity 0.3s ease;
@@ -247,46 +247,46 @@ body {
   opacity: 1;
 }
 
-/* Navbar Enhancements with better contrast */
+/* Navbar Enhancements with Navy Theme */
 .navbar-blur {
-  background: rgba(15, 23, 42, 0.95);
+  background: rgba(0, 0, 0, 0.95);
   backdrop-filter: blur(20px);
-  border-bottom: 1px solid rgba(51, 65, 85, 0.3);
+  border-bottom: 1px solid rgba(30, 27, 75, 0.3);
 }
 
-/* Custom Scrollbar for Dark Theme */
+/* Custom Scrollbar for Dark Navy Theme */
 ::-webkit-scrollbar {
   width: 8px;
 }
 
 ::-webkit-scrollbar-track {
-  background: #1e293b;
+  background: #000000;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #334155;
+  background: #1e1b4b;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #475569;
+  background: #1e3a8a;
 }
 
 /* Text Selection */
 ::selection {
-  background: rgba(249, 115, 22, 0.3);
+  background: rgba(59, 130, 246, 0.3);
   color: #fff;
 }
 
 ::-moz-selection {
-  background: rgba(249, 115, 22, 0.3);
+  background: rgba(59, 130, 246, 0.3);
   color: #fff;
 }
 
 /* Focus States */
-.focus-orange:focus {
+.focus-navy:focus {
   outline: none;
-  box-shadow: 0 0 0 3px rgba(249, 115, 22, 0.3);
+  box-shadow: 0 0 0 3px rgba(59, 130, 246, 0.3);
 }
 
 /* Logo enhancement for better visibility */
@@ -328,6 +328,61 @@ body {
 }
 .animation-delay-1000 {
   animation-delay: 1000ms;
+}
+
+/* Navy Theme Specific Utilities */
+.bg-dark-pattern {
+  background-color: #000000;
+  background-image: radial-gradient(
+      circle at 25% 25%,
+      rgba(30, 27, 75, 0.2) 0%,
+      transparent 50%
+    ),
+    radial-gradient(
+      circle at 75% 75%,
+      rgba(30, 58, 138, 0.1) 0%,
+      transparent 50%
+    );
+}
+
+.border-navy-glow {
+  border: 1px solid rgba(59, 130, 246, 0.3);
+  box-shadow: 0 0 10px rgba(59, 130, 246, 0.1);
+}
+
+.border-navy-glow:hover {
+  border: 1px solid rgba(59, 130, 246, 0.5);
+  box-shadow: 0 0 20px rgba(59, 130, 246, 0.2);
+}
+
+/* White background sections */
+.bg-white-section {
+  background: linear-gradient(135deg, #ffffff 0%, #f8fafc 50%, #f1f5f9 100%);
+  color: #1e293b;
+}
+
+.bg-white-section .gradient-text {
+  background: linear-gradient(135deg, #1e3a8a, #1e40af, #3b82f6);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* Text color adjustments for different backgrounds */
+.text-on-dark {
+  color: #ffffff;
+}
+
+.text-on-navy {
+  color: #ffffff;
+}
+
+.text-on-white {
+  color: #1e293b;
+}
+
+.text-on-light {
+  color: #374151;
 }
 
 /* Responsive Text */

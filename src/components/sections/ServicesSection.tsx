@@ -69,6 +69,7 @@ const ServicesSection = () => {
       iconColor: "text-red-400",
       price: "Custom Quote",
       popular: false,
+      backgroundImage: "/ServiceSection/cybersecurity.jpg",
     },
     {
       icon: Server,
@@ -85,6 +86,7 @@ const ServicesSection = () => {
       iconColor: "text-blue-400",
       price: "Starting $5k",
       popular: true,
+      backgroundImage: "/ServiceSection/ITServices.jpg",
     },
     {
       icon: Truck,
@@ -101,6 +103,7 @@ const ServicesSection = () => {
       iconColor: "text-green-400",
       price: "Starting $3k",
       popular: false,
+      backgroundImage: "/ServiceSection/Logistic.jpg",
     },
     {
       icon: Users,
@@ -117,34 +120,24 @@ const ServicesSection = () => {
       iconColor: "text-purple-400",
       price: "Starting $2k",
       popular: false,
-    },
-  ];
-
-  const capabilities = [
-    {
-      icon: Zap,
-      title: "Rapid Deployment",
-      description: "Quick response and implementation within 48-72 hours",
-      color: "text-yellow-400",
+      backgroundImage: "/ServiceSection/Consulting.jpg",
     },
     {
-      icon: Globe,
-      title: "Global Reach",
+      icon: Settings,
+      title: "Construction Services",
       description:
-        "Nationwide service coverage with international capabilities",
-      color: "text-blue-400",
-    },
-    {
-      icon: Lock,
-      title: "Security First",
-      description: "Military-grade security protocols and compliance",
-      color: "text-green-400",
-    },
-    {
-      icon: TrendingUp,
-      title: "Proven Results",
-      description: "98% success rate with measurable ROI",
-      color: "text-purple-400",
+        "Professional construction and infrastructure services for government projects with military precision and quality standards.",
+      features: [
+        "Government facility construction",
+        "Infrastructure development projects",
+        "Project management and oversight",
+        "Quality assurance and compliance",
+      ],
+      gradient: "from-orange-500 to-orange-600",
+      iconColor: "text-orange-400",
+      price: "Custom Quote",
+      popular: false,
+      backgroundImage: "/ServiceSection/Constructing.jpg",
     },
   ];
 
@@ -180,13 +173,6 @@ const ServicesSection = () => {
       <div ref={sectionRef} className="container-custom relative z-10">
         {/* Section Header */}
         <div className="animate-on-scroll text-center mb-20">
-          <div className="inline-flex items-center bg-orange-600/20 border border-orange-500/30 rounded-full px-6 py-3 mb-8 backdrop-blur-sm">
-            <Target className="w-5 h-5 text-orange-400 mr-2" />
-            <span className="text-orange-300 font-medium">
-              Expertise & Capabilities
-            </span>
-          </div>
-
           <h2 className="text-4xl md:text-5xl font-bold text-white mb-8 leading-tight">
             Strategic Government
             <span className="block gradient-text mt-2">
@@ -211,48 +197,53 @@ const ServicesSection = () => {
               }`}
             >
               {service.popular && (
-                <div className="absolute top-4 right-4">
+                <div className="absolute top-4 right-4 z-10">
                   <Badge className="bg-orange-600 text-white">
                     Most Popular
                   </Badge>
                 </div>
               )}
 
-              <CardContent className="p-0">
-                <div className="p-8">
-                  {/* Service Header */}
-                  <div className="flex items-center justify-between mb-6">
-                    <div className="flex items-center">
-                      <div className="w-14 h-14 bg-gray-700/50 rounded-xl flex items-center justify-center mr-4">
-                        <service.icon
-                          className={`w-7 h-7 ${service.iconColor}`}
-                        />
-                      </div>
-                      <div>
-                        <h3 className="text-xl font-bold text-white group-hover:text-orange-400 transition-colors">
-                          {service.title}
-                        </h3>
-                        <p className="text-orange-400 font-medium text-sm">
-                          {service.price}
-                        </p>
-                      </div>
-                    </div>
+              <CardContent className="p-0 h-full flex flex-col">
+                {/* Top 50% - Background Image */}
+                <div
+                  className="h-48 relative bg-cover bg-center"
+                  style={{
+                    backgroundImage: `url(${service.backgroundImage})`,
+                  }}
+                >
+                  {/* Overlay */}
+                  <div className="absolute inset-0 bg-black/50"></div>
+
+                  {/* Service Title */}
+                  <div className="absolute inset-0 flex items-center justify-center text-white">
+                    <h3 className="text-xl font-bold text-center px-4">
+                      {service.title}
+                    </h3>
                   </div>
+                </div>
+
+                {/* Bottom 50% - Content */}
+                <div className="p-6 flex-1 flex flex-col">
+                  {/* Price */}
+                  <p className="text-orange-400 font-medium text-sm mb-4">
+                    {service.price}
+                  </p>
 
                   {/* Service Description */}
-                  <p className="text-gray-300 mb-6 leading-relaxed">
+                  <p className="text-gray-300 mb-4 leading-relaxed text-sm flex-1">
                     {service.description}
                   </p>
 
                   {/* Service Features */}
-                  <div className="space-y-3 mb-6">
+                  <div className="space-y-2 mb-6">
                     {service.features.map((feature, featureIndex) => (
                       <div
                         key={featureIndex}
-                        className="flex items-start space-x-3"
+                        className="flex items-start space-x-2"
                       >
-                        <CheckCircle className="w-4 h-4 text-green-400 flex-shrink-0 mt-0.5" />
-                        <span className="text-gray-300 text-sm">{feature}</span>
+                        <CheckCircle className="w-3 h-3 text-green-400 flex-shrink-0 mt-0.5" />
+                        <span className="text-gray-300 text-xs">{feature}</span>
                       </div>
                     ))}
                   </div>
@@ -266,11 +257,6 @@ const ServicesSection = () => {
                     <ArrowRight className="ml-2 w-4 h-4" />
                   </Button>
                 </div>
-
-                {/* Gradient Footer */}
-                <div
-                  className={`h-1 bg-gradient-to-r ${service.gradient}`}
-                ></div>
               </CardContent>
             </Card>
           ))}
@@ -305,67 +291,6 @@ const ServicesSection = () => {
                 <p className="text-gray-400 text-sm">{step.description}</p>
               </div>
             ))}
-          </div>
-        </div>
-
-        {/* Capabilities Section */}
-        <div className="animate-on-scroll bg-gray-800/50 border border-gray-700/50 rounded-2xl p-8 md:p-12 backdrop-blur-sm">
-          <div className="text-center mb-12">
-            <h3 className="text-3xl font-bold text-white mb-4">
-              Why Choose Elite Veteran Solutions?
-            </h3>
-            <p className="text-gray-300 text-lg max-w-3xl mx-auto">
-              Navigate complex federal procurement processes with our expert
-              guidance. We'll help you identify, pursue, and win lucrative
-              government contracts with proven methodologies.
-            </p>
-          </div>
-
-          <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
-            {capabilities.map((capability, index) => (
-              <div
-                key={index}
-                className="text-center p-6 bg-gray-900/50 border border-gray-700/30 rounded-xl hover:border-orange-500/30 transition-all"
-              >
-                <div className="w-14 h-14 bg-gray-700/50 rounded-xl flex items-center justify-center mx-auto mb-4">
-                  <capability.icon className={`w-7 h-7 ${capability.color}`} />
-                </div>
-                <h4 className="text-lg font-semibold text-white mb-2">
-                  {capability.title}
-                </h4>
-                <p className="text-gray-400 text-sm leading-relaxed">
-                  {capability.description}
-                </p>
-              </div>
-            ))}
-          </div>
-
-          {/* Statistics */}
-          <div className="grid grid-cols-2 md:grid-cols-4 gap-8 mb-12">
-            {[
-              { value: "200+", label: "Projects Completed" },
-              { value: "98%", label: "Success Rate" },
-              { value: "15+", label: "Years Experience" },
-              { value: "24/7", label: "Support Available" },
-            ].map((stat, index) => (
-              <div key={index} className="text-center">
-                <div className="text-3xl font-bold text-white mb-2">
-                  {stat.value}
-                </div>
-                <div className="text-gray-400 text-sm">{stat.label}</div>
-              </div>
-            ))}
-          </div>
-
-          <div className="text-center">
-            <Button
-              onClick={scrollToContact}
-              size="lg"
-              className="bg-orange-600 hover:bg-orange-700 text-white px-10 py-4 text-lg font-semibold rounded-lg transition-all duration-300 transform hover:scale-105 group"
-            >
-              Start Your Project Today
-              <ArrowRight className="ml-3 h-5 w-5 group-hover:translate-x-1 transition-transform" />
-            </Button>
           </div>
         </div>
       </div>
