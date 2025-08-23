@@ -116,7 +116,7 @@ const HeroSection = () => {
                 <div className="mb-6 flex justify-center">
                   <div className="w-20 h-20 bg-gradient-to-br from-red-500/20 to-red-600/30 border border-red-400/30 rounded-2xl flex items-center justify-center shadow-xl">
                     <img
-                      src="/HeroSectionIcons/YearsOfExcellence.png"
+                      src="/HeroSectionIcons/expertise.png"
                       alt="Years of Excellence"
                       className="w-12 h-12 drop-shadow-lg"
                       style={{
